@@ -65,4 +65,5 @@ CDM слой расположен в отдельной схеме на БД п�
 
 #### Примечания
 Документация к REST API для облачной Atlassian JIRA - https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#about
+
 Информация об LTS релизах - https://www.atlassian.com/software/jira/download-archives
