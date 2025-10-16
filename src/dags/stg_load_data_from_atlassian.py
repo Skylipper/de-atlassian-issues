@@ -11,7 +11,7 @@ log = logging.getLogger("load_data_from_atlassian_dag")
 def check_task_func():
 
     atl_conn_info = atl.get_atl_connection_info()
-    log.info(atl_conn_info)
+    log.info(atl_conn_info.host)
 
     log.info(var.PLAIN_JQL)
 
