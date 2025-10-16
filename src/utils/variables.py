@@ -1,5 +1,7 @@
-#Airflow variables
+from airflow.configuration import conf
 
+#Airflow variables
+AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
 
 # ATLASSIAN variables
 ATLASSIAN_AUTH_TOKEN_VAR_NAME = 'ATLASSIAN_AUTH_TOKEN'
