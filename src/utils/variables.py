@@ -1,6 +1,7 @@
+#Airflow variables
+
+
 # ATLASSIAN variables
-
-
 ATLASSIAN_AUTH_TOKEN_VAR_NAME = 'ATLASSIAN_AUTH_TOKEN'
 ATLASSIAN_JIRA_URL = "https://jira.atlassian.com"
 API_SEARCH_METHOD_PATH = "rest/api/2/search`"
