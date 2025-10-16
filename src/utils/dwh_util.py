@@ -24,7 +24,7 @@ def get_dwh_connection(log=logging.getLogger("test")):
 
     return conn
 
-def get_stg_last_loaded_ts(settings_table, table, logger=log):
+def get_last_loaded_ts(settings_table, table, logger=log):
     query = f"""SELECT COALESCE(
                 (SELECT  (workflow_settings::jsonb ->> 'last_loaded_ts')::timestamp
                 FROM {settings_table}
@@ -39,6 +39,7 @@ def get_stg_last_loaded_ts(settings_table, table, logger=log):
         rows = cur.fetchall()
         if(rows):
             last_loaded_ts = rows[0][0]
+
 
     return last_loaded_ts
 

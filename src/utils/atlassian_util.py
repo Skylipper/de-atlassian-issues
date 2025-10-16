@@ -1,6 +1,7 @@
 from airflow.hooks.base import BaseHook
 import urllib.parse
 import src.utils.variables as var
+import src.utils.dwh_util as dwh_util
 import src.utils.http_requests_util as http_requests_util
 
 
@@ -29,9 +30,13 @@ def get_jql_results(jql_query):
 
     return response
 
-def get_results_batch(date=var.START_DATE):
-    date = get_last_loaded_ts()
+def get_results_batch():
+    date = dwh_util.get_last_loaded_ts(var.STG_WF_TABLE_NAME, 'issues')
     jql_query = get_jql_query(date)
+
+    response = get_jql_results(jql_query)
+
+    return response
 
 
 
