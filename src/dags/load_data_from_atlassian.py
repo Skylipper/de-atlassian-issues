@@ -19,12 +19,14 @@ def check_task_func():
 def load_data_from_atlassian_dag():
     start_task = EmptyOperator(task_id='start_task')
 
-    # @task()
-    # def check_task():
-    #     check_task_func()
+
+    check_task = PythonOperator(
+        task_id='check_task',
+        python_callable=check_task_func
+    )
 
     end_task = EmptyOperator(task_id='end_task')
 
-    start_task >>  end_task
+    start_task >> check_task >> end_task
 
 dag = load_data_from_atlassian_dag()
