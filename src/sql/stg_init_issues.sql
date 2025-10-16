@@ -5,7 +5,7 @@ DROP table if exists stg.issues;
 CREATE table if not exists stg.issues
 (
     id           serial primary key not null,
-    object_id    varchar(255)       not null unique,
+    object_id    varchar(255)       not null,
     object_value text               not null,
     update_ts    timestamp          not null
 );
