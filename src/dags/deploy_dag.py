@@ -1,7 +1,10 @@
 from airflow.decorators import dag, task
+from airflow.operators.python import PythonOperator
 from subprocess import call
 from datetime import datetime
 
+def call_script(script_path):
+    call(script_path)
 
 @dag(
     schedule=None,
@@ -11,12 +14,13 @@ from datetime import datetime
     is_paused_upon_creation=True
 )
 def deploy_dag():
-    @task
-    def deploy():
-        call("sh/pull.sh")
+    deploy = PythonOperator(
+        task_id='create_files_request',
+        python_callable=call_script,
+        op_kwargs={'script_path': "sh/pull.sh"},
+        dag=dag
+    )
 
-
-
-    (deploy)
+    deploy
 
 dag = deploy_dag()
