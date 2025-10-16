@@ -17,7 +17,7 @@ def get_atl_connection_info():
 
 
 def get_jql_query(date):
-    date_formatted = date.strftime("%Y-%m-%d")
+    date_formatted = date.strftime("%Y-%m-%d %H:%M:%S")
     jql_query = f"{var.PLAIN_JQL} AND '{var.ISSUE_DATE_FIELD}' > '{date_formatted}' ORDER BY {var.ISSUE_DATE_FIELD} ASC"
 
     return jql_query
