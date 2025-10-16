@@ -1,5 +1,6 @@
 import json
 import urllib.parse
+from datetime import datetime
 
 from airflow.hooks.base import BaseHook
 
@@ -59,7 +60,7 @@ def load_issues(log):
             object_id = issue['id']
             object_value = json.dumps(issue)
             update_ts = issue['fields']['updated']
-            if update_ts > last_load_ts:
+            if datetime.strptime(update_ts,'%Y-%m-%d %H:%M') > last_load_ts:
                 last_load_ts = update_ts
             insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
             processed_count += 1
