@@ -2,7 +2,9 @@ import logging
 
 import pendulum
 from airflow.decorators import dag
-from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+
+
 
 import src.utils.variables as var
 
@@ -18,9 +20,9 @@ log = logging.getLogger("ds_init_dag")
     is_paused_upon_creation=True
 )
 def init_stg_dag():
-    init_stg_issues = PostgresOperator(
-        task_id="init_stg_model",
-        postgres_conn_id=var.dwh_connection_name,  # Replace with your SQL connection ID
+    init_stg_issues = SQLExecuteQueryOperator(
+        task_id="init_stg_issues",
+        conn_id=var.DWH_CONNECTION_NAME,
         sql="sql/stg_init_issues.sql.sql",
         autocommit=True
     )
