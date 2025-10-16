@@ -56,7 +56,7 @@ def load_issues(log):
             object_value = json.dumps(issue)
             update_ts = issue['fields']['updated']
 
-            insert_stg_data('issues', object_id, object_value, update_ts)
+            insert_stg_data('stg.issues', object_id, object_value, update_ts)
             processed_count += 1
         if total <= var.JQL_BATCH_SIZE:
             break
