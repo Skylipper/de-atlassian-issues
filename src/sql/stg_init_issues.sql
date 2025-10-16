@@ -1,5 +1,7 @@
 CREATE schema if not exists stg;
 
+DROP table if exists stg.issues;
+
 CREATE table if not exists stg.issues
 (
     id           serial primary key not null,
