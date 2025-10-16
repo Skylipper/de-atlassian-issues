@@ -16,7 +16,7 @@ log = logging.getLogger("ds_init_dag")
     start_date=pendulum.datetime(2022, 5, 5, tz="UTC"),
     catchup=False,
     tags=['project', 'init', 'sql'],
-    template_searchpath=['../sql'],
+    template_searchpath=['../sql/'],
     is_paused_upon_creation=True
 )
 def init_stg_dag():
