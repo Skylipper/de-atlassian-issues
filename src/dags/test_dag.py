@@ -3,6 +3,7 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime
 import src.utils.variables as var
 import src.utils.atlassian_util as atl
+import src.utils.dwh_util as dwh
 import logging
 
 log = logging.getLogger("load_data_from_atlassian_dag")
@@ -12,7 +13,8 @@ def check_task_func():
     atl_conn_info = atl.get_atl_connection_info()
     log.info(atl_conn_info.host)
 
-    log.info(atl.get_jql_results(atl.get_jql_query()))
+    last_loaded_ts = dwh.get_stg_last_loaded_ts('issues',log)
+    log.info(last_loaded_ts)
 
     log.info(var.PLAIN_JQL)
 

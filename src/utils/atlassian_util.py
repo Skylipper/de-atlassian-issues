@@ -10,7 +10,7 @@ def get_atl_connection_info():
     return conn_info
 
 
-def get_jql_query(date=var.START_DATE):
+def get_jql_query(date):
     date_formatted = date.strftime("%Y-%m-%d")
     jql_query = f"{var.PLAIN_JQL} AND '{var.ISSUE_DATE_FIELD}' > '{date_formatted}' ORDER BY {var.ISSUE_DATE_FIELD} ASC"
 
@@ -20,7 +20,7 @@ def get_jql_query(date=var.START_DATE):
 def get_jql_results(jql_query):
     jql_query_encoded = urllib.parse.quote_plus(jql_query)
     conn_info = get_atl_connection_info()
-    url = f"{conn_info.host}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}"
+    url = f"{conn_info.host}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&expand=names,changelog&maxResults={var.JQL_BATCH_SIZE}"
 
     payload = {}
     headers = get_atl_headers(conn_info)
@@ -28,6 +28,12 @@ def get_jql_results(jql_query):
     response = http_requests_util.execute_request("GET", url, headers, payload, 200)
 
     return response
+
+def get_results_batch(date=var.START_DATE):
+    date = get_last_loaded_ts()
+    jql_query = get_jql_query(date)
+
+
 
 
 def get_atl_headers(conn_info):

@@ -4,6 +4,7 @@ import psycopg2
 
 from airflow.hooks.base import BaseHook
 
+log = logging.getLogger(__name__)
 
 def get_connection(conn_id, log=logging.getLogger("test")):
     conn_props = None
@@ -22,3 +23,22 @@ def get_dwh_connection(log=logging.getLogger("test")):
     conn = get_connection(var.DWH_CONNECTION_NAME, log)
 
     return conn
+
+def get_stg_last_loaded_ts(table, logger=log):
+    query = f"""SELECT COALESCE(
+                (SELECT  (workflow_settings::jsonb ->> 'last_loaded_ts')::timestamp
+                FROM {var.STG_WF_TABLE_NAME}
+                WHERE workflow_key = '{table}'), '{var.START_DATE}'::timestamp) as last_loaded_ts"""
+
+    conn = get_dwh_connection(log)
+
+    last_loaded_ts = var.START_DATE
+    with conn:
+        cur = conn.cursor()
+        cur.execute(query)
+        rows = cur.fetchall()
+        if(rows):
+            last_loaded_ts = rows[0][0]
+
+    return last_loaded_ts
+
