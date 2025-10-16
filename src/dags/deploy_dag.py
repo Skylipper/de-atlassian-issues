@@ -1,21 +1,21 @@
-from airflow.decorators import dag
-from airflow.operators.bash import BashOperator
-import pendulum
+from airflow.decorators import dag, task
+from subprocess import call
+from datetime import datetime
 
 
 @dag(
-    schedule_interval=None,
-    start_date=pendulum.now('UTC'),
+    schedule=None,
+    start_date=datetime.now(),
     catchup=False,
     tags=['project', 'deploy', 'manual'],
     is_paused_upon_creation=True
 )
 def deploy_dag():
-    run_bash_script = BashOperator(
-        task_id='run_deploy_bash_script',
-        bash_command='/opt/airflow/dags/src/sh/pull.sh ',
-    )
+    @task
+    def deploy():
+        call("sh/pull.sh")
+        pass
 
-    run_bash_script
+    deploy
 
 dag = deploy_dag()
