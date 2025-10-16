@@ -15,10 +15,9 @@ def call_script(script_path):
 )
 def deploy_dag():
     deploy = PythonOperator(
-        task_id='create_files_request',
+        task_id='deploy',
         python_callable=call_script,
         op_kwargs={'script_path': "sh/pull.sh"},
-        dag=deploy_dag
     )
 
     (deploy)
