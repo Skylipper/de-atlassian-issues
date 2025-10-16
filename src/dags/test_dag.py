@@ -12,7 +12,7 @@ def check_task_func():
     atl_conn_info = atl.get_atl_connection_info()
     log.info(atl_conn_info.host)
 
-    log.info(atl.get_jql_results())
+    log.info(atl.get_jql_results(atl.get_jql_query()))
 
     log.info(var.PLAIN_JQL)
 
