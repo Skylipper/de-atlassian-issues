@@ -9,10 +9,10 @@ log = logging.getLogger("load_data_from_atlassian_dag")
 
 
 def check_task_func():
-    log.info(var.ATLASSIAN_JIRA_URL)
-    atlassian_jira_url = atl.get_atl_bearer()
-    log.info(atlassian_jira_url)
-    log.info(var.ATLASSIAN_JIRA_URL)
+
+    atl_conn_info = atl.get_atl_connection_info()
+    log.info(atl_conn_info)
+
     log.info(var.PLAIN_JQL)
 
 
