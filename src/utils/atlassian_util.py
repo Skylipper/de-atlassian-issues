@@ -79,7 +79,10 @@ def insert_stg_data(table, object_id, object_value, update_ts):
             "update_ts": update_ts
         }
     )
-    wf_settings = f'{{LAST_LOADED_TS_KEY: {update_ts}}}'
+
+    wf_setting_dict = {LAST_LOADED_TS_KEY:update_ts}
+    wf_settings = json.dumps(wf_setting_dict)
+
     cur.execute(
         f"""
         INSERT INTO {var.STG_WF_TABLE_NAME} (workflow_key, workflow_settings)
@@ -89,7 +92,7 @@ def insert_stg_data(table, object_id, object_value, update_ts):
         """,
         {
             "etl_key": table,
-            "etl_setting": str(wf_settings)
+            "etl_setting": wf_settings
         }
     )
     conn.commit()
