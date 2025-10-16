@@ -5,7 +5,7 @@ from datetime import datetime
 
 @dag(
     schedule=None,
-    start_date=datetime.now(),
+    start_date=datetime(2025, 10, 15),
     catchup=False,
     tags=['project', 'deploy', 'manual'],
     is_paused_upon_creation=True
