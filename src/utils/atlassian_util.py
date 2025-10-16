@@ -37,7 +37,7 @@ def get_jql_results(jql_query):
 
 
 def get_results_batch():
-    date = dwh_util.get_last_loaded_ts(var.STG_WF_TABLE_NAME, 'issues')
+    date = dwh_util.get_last_loaded_ts(var.STG_WF_TABLE_NAME, var.STG_ISSUES_TABLE_NAME)
     jql_query = get_jql_query(date)
 
     response = get_jql_results(jql_query)
