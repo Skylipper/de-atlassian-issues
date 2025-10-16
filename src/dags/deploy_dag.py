@@ -1,5 +1,5 @@
 from airflow.decorators import dag, task
-from airflow.operators.python import PythonOperator
+from airflow.providers.postgres.operators.python import PythonOperator
 from subprocess import call
 from datetime import datetime
 
@@ -21,6 +21,6 @@ def deploy_dag():
         dag=dag
     )
 
-    deploy
+    (deploy)
 
 dag = deploy_dag()
