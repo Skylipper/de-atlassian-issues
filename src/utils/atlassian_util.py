@@ -51,23 +51,23 @@ def load_issues(log):
         issues_json_batch = get_results_batch()
         total = issues_json_batch['total']
         log.info(f"Total: {total}")
-        log.info(issues_json_batch)
         issues_array = issues_json_batch['issues']
+        conn = dwh_util.get_dwh_connection()
+        cur = conn.cursor()
         for issue in issues_array:
             object_id = issue['id']
             object_value = json.dumps(issue)
             update_ts = issue['fields']['updated']
-
-            conn = dwh_util.get_dwh_connection()
-            cur = conn.cursor()
             insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
-            conn.commit()
-            cur.close()
-            conn.close()
-
             processed_count += 1
-        if total <= var.JQL_BATCH_SIZE:
-            break
+
+        conn.commit()
+        cur.close()
+        conn.close()
+
+
+    if total <= var.JQL_BATCH_SIZE:
+        break
 
 
 def insert_stg_data(cur, table, object_id, object_value, update_ts):
