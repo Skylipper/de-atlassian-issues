@@ -13,7 +13,7 @@ def check_task_func():
     atl_conn_info = atl.get_atl_connection_info()
     log.info(atl_conn_info.host)
 
-    last_loaded_ts = dwh.get_stg_last_loaded_ts('issues',log)
+    last_loaded_ts = dwh.get_stg_last_loaded_ts(var.STG_WF_TABLE_NAME,'issues',log)
     log.info(last_loaded_ts)
 
     log.info(var.PLAIN_JQL)

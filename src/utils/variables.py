@@ -7,7 +7,7 @@ AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
 
 # DWH variables
 DWH_CONNECTION_NAME = "ATLAS_DWH_DB"
-STG_WF_TABLE_NAME = 'stg.srv_wf_settings'
+STG_WF_TABLE_NAME = 'stg.load_settings'
 
 # ATLASSIAN variables
 ATLASSIAN_CONN_NAME = "ATLASSIAN_REST_API"
