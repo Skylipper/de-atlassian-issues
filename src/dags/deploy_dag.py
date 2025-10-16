@@ -22,4 +22,5 @@ def deploy_dag():
     )
 
     (deploy)
+dag = deploy_dag
 
