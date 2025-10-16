@@ -1,6 +1,12 @@
-from airflow.models.dag import DAG
+from airflow.models.dag import DAG, task
 from airflow.operators.empty import EmptyOperator
+from airflow.operators.python import PythonOperator
 from datetime import datetime
+import src.variables.variables as var
+
+
+def check_task_func():
+    print(var.ATLASSIAN_JIRA_URL)
 
 with DAG(
         dag_id='load_data_from_atlassian',
@@ -10,9 +16,13 @@ with DAG(
         catchup=False,
         tags=['load', 'project'],
 ) as dag:
-    # Define a placeholder task using EmptyOperator
     start_task = EmptyOperator(task_id='start_task')
+
+
+    @task()
+    def check_task():
+        check_task_func()
+
     end_task = EmptyOperator(task_id='end_task')
 
-    # Define task dependencies (optional, but shows the structure)
-    start_task >> end_task
+    start_task >>check_task >> end_task
