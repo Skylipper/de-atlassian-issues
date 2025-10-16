@@ -54,12 +54,17 @@ def load_issues(log):
         issues_array = issues_json_batch['issues']
         conn = dwh_util.get_dwh_connection()
         cur = conn.cursor()
+        last_load_ts = var.START_DATE
         for issue in issues_array:
             object_id = issue['id']
             object_value = json.dumps(issue)
             update_ts = issue['fields']['updated']
+            if update_ts > last_load_ts:
+                last_load_ts = update_ts
             insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
             processed_count += 1
+
+        update_last_loaded_ts(cur,var.STG_ISSUES_TABLE_NAME,last_load_ts)
 
         conn.commit()
         cur.close()
@@ -68,6 +73,22 @@ def load_issues(log):
         if total <= var.JQL_BATCH_SIZE:
             break
 
+def update_last_loaded_ts(cur, table, last_loaded_ts):
+    wf_setting_dict = {LAST_LOADED_TS_KEY: last_loaded_ts}
+    wf_settings = json.dumps(wf_setting_dict)
+
+    cur.execute(
+        f"""
+            INSERT INTO {var.STG_WF_TABLE_NAME} (workflow_key, workflow_settings)
+            VALUES (%(etl_key)s, %(etl_setting)s)
+            ON CONFLICT (workflow_key) DO UPDATE
+                SET workflow_settings = EXCLUDED.workflow_settings;
+            """,
+        {
+            "etl_key": table,
+            "etl_setting": wf_settings
+        }
+    )
 
 def insert_stg_data(cur, table, object_id, object_value, update_ts):
     cur.execute(
