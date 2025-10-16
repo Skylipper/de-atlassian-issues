@@ -30,8 +30,6 @@ def get_last_loaded_ts(settings_table, table, logger=log):
                 FROM {settings_table}
                 WHERE workflow_key = '{table}'), '{var.START_DATE}'::timestamp) as last_loaded_ts"""
 
-    logger.info(query)
-
     conn = get_dwh_connection(log)
 
     last_loaded_ts = var.START_DATE
@@ -41,6 +39,7 @@ def get_last_loaded_ts(settings_table, table, logger=log):
         rows = cur.fetchall()
         if(rows):
             last_loaded_ts = rows[0][0]
+            logger.info(f"last_loaded_ts: {last_loaded_ts}")
 
 
     return last_loaded_ts
