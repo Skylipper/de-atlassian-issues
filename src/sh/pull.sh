@@ -10,3 +10,5 @@ else
   echo "Error during git pull."
   exit 1
 fi
+
+chmod a+x src/sh/pull.sh
