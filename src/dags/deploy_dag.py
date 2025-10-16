@@ -8,7 +8,7 @@ import pendulum
     start_date=pendulum.now('UTC'),
     catchup=False,
     tags=['project', 'deploy', 'manual'],
-    template_searchpath=['/src/sh'],
+    template_searchpath=['/opt/airflow/dags'],
     is_paused_upon_creation=True
 )
 def deploy_dag():
