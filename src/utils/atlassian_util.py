@@ -1,12 +1,14 @@
-from airflow.hooks.base import BaseHook
 import json
-from typing import Any
 import urllib.parse
-import src.utils.variables as var
+
+from airflow.hooks.base import BaseHook
+
 import src.utils.dwh_util as dwh_util
 import src.utils.http_requests_util as http_requests_util
+import src.utils.variables as var
 
 LAST_LOADED_TS_KEY = "last_loaded_ts"
+
 
 def get_atl_connection_info():
     conn_info = BaseHook.get_connection(var.ATLASSIAN_CONN_NAME)
@@ -33,12 +35,14 @@ def get_jql_results(jql_query):
 
     return response
 
+
 def get_results_batch():
     date = dwh_util.get_last_loaded_ts(var.STG_WF_TABLE_NAME, 'issues')
     jql_query = get_jql_query(date)
 
     response = get_jql_results(jql_query)
     return response
+
 
 def load_issues(log):
     processed_count = 0
@@ -49,7 +53,7 @@ def load_issues(log):
         issues_array = issues_json_batch['issues']
         for issue in issues_array:
             object_id = issue['id']
-            object_value = issue
+            object_value = json.dumps(issue)
             update_ts = issue['fields']['updated']
 
             insert_stg_data('issues', object_id, object_value, update_ts)
@@ -91,8 +95,6 @@ def insert_stg_data(table, object_id, object_value, update_ts):
     conn.commit()
     cur.close()
     conn.close()
-
-
 
 
 def get_atl_headers(conn_info):
