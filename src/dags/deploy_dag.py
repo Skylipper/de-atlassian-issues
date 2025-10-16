@@ -20,7 +20,7 @@ def deploy_dag():
     deploy = PythonOperator(
         task_id='deploy',
         python_callable=call_script,
-        op_kwargs={'script_path': "../sh/pull.sh"},
+        op_kwargs={'script_path': "dags/src/sh/pull.sh"},
     )
 
     (deploy)
