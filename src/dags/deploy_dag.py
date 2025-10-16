@@ -16,6 +16,7 @@ def deploy_dag():
     def deploy():
         call("sh/pull.sh")
 
+
     join_task = EmptyOperator(task_id='join_point')
 
     (join_task >> deploy)
