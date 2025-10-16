@@ -1,0 +1,1 @@
+ATLASSIAN_JIRA_URL = "https://jira.atlassian.com"
