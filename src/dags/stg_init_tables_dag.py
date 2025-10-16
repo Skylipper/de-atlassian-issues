@@ -23,7 +23,7 @@ def init_stg_dag():
     init_stg_issues = SQLExecuteQueryOperator(
         task_id="init_stg_issues",
         conn_id=var.DWH_CONNECTION_NAME,
-        sql="stg_init_issues.sql.sql",
+        sql="stg_init_issues.sql",
         autocommit=True
     )
 
