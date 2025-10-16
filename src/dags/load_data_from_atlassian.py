@@ -2,11 +2,14 @@ from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
 from datetime import datetime
 import src.variables.variables as var
+import logging
+
+log = logging.getLogger("load_data_from_atlassian_dag")
 
 
 def check_task_func():
-    print(var.ATLASSIAN_JIRA_URL)
-    print(var.PLAIN_JQL)
+    log.info(var.ATLASSIAN_JIRA_URL)
+    log.info(var.PLAIN_JQL)
 
 
 @dag(
@@ -16,13 +19,13 @@ def check_task_func():
     catchup=False,
     tags=['load', 'project'],
 )
-def load_data_from_atlassian_dag():
+def load_data_from_atlassian_dag_to_stg():
     check_task = PythonOperator(
         task_id='check_task',
         python_callable=check_task_func
     )
 
-
     check_task
 
-dag = load_data_from_atlassian_dag()
+
+dag = load_data_from_atlassian_dag_to_stg()
