@@ -12,7 +12,7 @@ def get_atl_connection_info():
 
 def get_jql_query(date=var.START_DATE):
     date_formatted = date.strftime("%Y-%m-%d")
-    jql_query = f"{var.PLAIN_JQL} AND '{var.ISSUE_DATE_FIELD}' > '{date_formatted}' ORDER BY {var.ISSUE_DATE_FIELD} ASC"
+    jql_query = f"{var.PLAIN_JQL} AND '{var.ISSUE_DATE_FIELD}' > '{date_formatted}' ORDER BY {var.ISSUE_DATE_FIELD} ASCA"
 
     return jql_query
 
