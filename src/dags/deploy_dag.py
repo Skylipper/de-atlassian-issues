@@ -16,6 +16,6 @@ def deploy_dag():
         call("sh/pull.sh")
         pass
 
-    deploy
+    (deploy)
 
 dag = deploy_dag()
