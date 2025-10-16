@@ -65,9 +65,8 @@ def load_issues(log):
         cur.close()
         conn.close()
 
-
-    if total <= var.JQL_BATCH_SIZE:
-        break
+        if total <= var.JQL_BATCH_SIZE:
+            break
 
 
 def insert_stg_data(cur, table, object_id, object_value, update_ts):
