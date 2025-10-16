@@ -1,0 +1,3 @@
+/src/py_local/*
+/src/py_local/secrets.py
+/src/py_local/check_connections_locally.py
