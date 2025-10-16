@@ -1,4 +1,5 @@
 from airflow.decorators import dag, task
+from airflow.operators.empty import EmptyOperator
 from subprocess import call
 from datetime import datetime
 
@@ -14,8 +15,9 @@ def deploy_dag():
     @task
     def deploy():
         call("sh/pull.sh")
-        pass
 
-    (deploy)
+    join_task = EmptyOperator(task_id='join_point')
+
+    (join_task >> deploy)
 
 dag = deploy_dag()
