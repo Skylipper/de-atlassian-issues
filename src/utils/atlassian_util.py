@@ -50,7 +50,7 @@ def load_issues(log):
         for issue in issues_array:
             object_id = issue['id']
             object_value = issue
-            update_ts = issue['updated']
+            update_ts = issue['fields']['updated']
 
             insert_stg_data('issues', object_id, object_value, update_ts)
             processed_count += 1
