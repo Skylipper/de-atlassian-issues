@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /airflow/dags/de-atlassian-issues
+cd /airflow/dags
 git pull
 
 # Optional: Add error handling
