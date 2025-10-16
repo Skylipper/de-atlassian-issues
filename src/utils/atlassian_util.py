@@ -58,15 +58,19 @@ def load_issues(log):
             object_value = json.dumps(issue)
             update_ts = issue['fields']['updated']
 
-            insert_stg_data(var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
+            conn = dwh_util.get_dwh_connection()
+            cur = conn.cursor()
+            insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
+            conn.commit()
+            cur.close()
+            conn.close()
+
             processed_count += 1
         if total <= var.JQL_BATCH_SIZE:
             break
 
 
-def insert_stg_data(table, object_id, object_value, update_ts):
-    conn = dwh_util.get_dwh_connection()
-    cur = conn.cursor()
+def insert_stg_data(cur, table, object_id, object_value, update_ts):
     cur.execute(
         f"""
             INSERT INTO {table} (object_id, object_value, update_ts)
@@ -82,7 +86,7 @@ def insert_stg_data(table, object_id, object_value, update_ts):
         }
     )
 
-    wf_setting_dict = {LAST_LOADED_TS_KEY:update_ts}
+    wf_setting_dict = {LAST_LOADED_TS_KEY: update_ts}
     wf_settings = json.dumps(wf_setting_dict)
 
     cur.execute(
@@ -97,9 +101,6 @@ def insert_stg_data(table, object_id, object_value, update_ts):
             "etl_setting": wf_settings
         }
     )
-    conn.commit()
-    cur.close()
-    conn.close()
 
 
 def get_atl_headers(conn_info):
