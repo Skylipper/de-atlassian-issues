@@ -17,7 +17,7 @@ log = logging.getLogger("ds_init_dag")
     template_searchpath=['src'],
     is_paused_upon_creation=True
 )
-def ds_init_dag():
+def init_stg_dag():
     init_stg_issues = PostgresOperator(
         task_id="init_stg_model",
         postgres_conn_id=var.dwh_connection_name,  # Replace with your SQL connection ID
@@ -28,4 +28,4 @@ def ds_init_dag():
     init_stg_issues
 
 
-dag = ds_init_dag()
+dag = init_stg_dag()
