@@ -1,6 +1,7 @@
 import logging
 import requests
 import time
+import src.utils.variables as var
 
 def execute_request(method, url, headers, payload, expected_code):
     logging.info(f"method: {method}, url: {url}")
