@@ -10,7 +10,6 @@ def check_task_func():
 
 
 @dag(
-    dag_id='load_data_from_atlassian',
     start_date=datetime(2025, 10, 15),
     schedule=None,
     is_paused_upon_creation=True,
