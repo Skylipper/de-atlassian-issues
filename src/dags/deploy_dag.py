@@ -2,8 +2,11 @@ from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
 from subprocess import call
 from datetime import datetime
+import os
 
 def call_script(script_path):
+    current_directory = os.getcwd()
+    print(f"Current Working Directory: {current_directory}")
     call(script_path)
 
 @dag(
