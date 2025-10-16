@@ -3,7 +3,6 @@ import json
 from typing import Any
 import urllib.parse
 import src.utils.variables as var
-import src.utils.dict_util as dutil
 import src.utils.dwh_util as dwh_util
 import src.utils.http_requests_util as http_requests_util
 
@@ -76,7 +75,7 @@ def insert_stg_data(table, object_id, object_value, update_ts):
             "update_ts": update_ts
         }
     )
-    wf_settings = dutil.json2str({LAST_LOADED_TS_KEY: update_ts})
+    wf_settings = f'{{LAST_LOADED_TS_KEY: {update_ts}}}'
     cur.execute(
         f"""
         INSERT INTO {var.STG_WF_TABLE_NAME} (workflow_key, workflow_settings)

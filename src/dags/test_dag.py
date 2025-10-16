@@ -15,7 +15,7 @@ def check_task_func():
     atl_conn_info = atl.get_atl_connection_info()
     log.info(atl_conn_info.host)
 
-    load_issues(log)
+    atl.load_issues(log)
 
     log.info(var.PLAIN_JQL)
 
