@@ -50,6 +50,7 @@ def load_issues(log):
         log.info(f"Processing {processed_count}/{var.JQL_LIMIT}")
         issues_json_batch = get_results_batch()
         total = issues_json_batch['total']
+        log.info(f"Total: {total}")
         log.info(issues_json_batch)
         issues_array = issues_json_batch['issues']
         for issue in issues_array:
@@ -57,7 +58,7 @@ def load_issues(log):
             object_value = json.dumps(issue)
             update_ts = issue['fields']['updated']
 
-            insert_stg_data('stg.issues', object_id, object_value, update_ts)
+            insert_stg_data(var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
             processed_count += 1
         if total <= var.JQL_BATCH_SIZE:
             break
