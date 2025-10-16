@@ -1,5 +1,5 @@
 from airflow.decorators import dag, task
-from airflow.providers.postgres.operators.python import PythonOperator
+from airflow.operators.python import PythonOperator
 from subprocess import call
 from datetime import datetime
 
