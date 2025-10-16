@@ -4,11 +4,15 @@ from airflow.configuration import conf
 from subprocess import call
 from datetime import datetime
 
+
 def call_script(script_path):
     dags_folder_path = conf.get("core", "dags_folder")
     # Print the path
     print(f"Airflow DAGs folder path: {dags_folder_path}")
-    call(f"{dags_folder_path}/de-atlassian-issues/{script_path}", shell=True)
+    script_full_path = f"{dags_folder_path}/{script_path}"
+    print(f"Script full file path: {script_full_path}")
+    call(script_full_path)
+
 
 @dag(
     schedule=None,
@@ -26,5 +30,5 @@ def deploy_dag():
 
     (deploy)
 
-dag = deploy_dag()
 
+dag = deploy_dag()
