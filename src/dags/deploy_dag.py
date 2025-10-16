@@ -8,13 +8,12 @@ import pendulum
     start_date=pendulum.now('UTC'),
     catchup=False,
     tags=['project', 'deploy', 'manual'],
-    template_searchpath=['/opt/airflow/dags'],
     is_paused_upon_creation=True
 )
 def deploy_dag():
     run_bash_script = BashOperator(
         task_id='run_deploy_bash_script',
-        bash_command='src/sh/pull.sh ',
+        bash_command='/opt/airflow/dags/src/sh/pull.sh ',
     )
 
     run_bash_script
