@@ -14,7 +14,7 @@ import pendulum
 def deploy_dag():
     run_bash_script = BashOperator(
         task_id='run_deploy_bash_script',
-        bash_command='/src/sh/pull.sh ',
+        bash_command='src/sh/pull.sh ',
     )
 
     run_bash_script
