@@ -1,10 +1,13 @@
 from airflow.hooks.base import BaseHook
+import json
+from typing import Any
 import urllib.parse
 import src.utils.variables as var
+import src.utils.dict_util as dutil
 import src.utils.dwh_util as dwh_util
 import src.utils.http_requests_util as http_requests_util
 
-
+LAST_LOADED_TS_KEY = "last_loaded_ts"
 
 def get_atl_connection_info():
     conn_info = BaseHook.get_connection(var.ATLASSIAN_CONN_NAME)
@@ -38,11 +41,57 @@ def get_results_batch():
     response = get_jql_results(jql_query)
     return response
 
-def get_limited_jql_results(log):
+def load_issues(log):
     processed_count = 0
-    issues_json_batch = get_results_batch()
+    while processed_count < var.JQL_LIMIT:
+        issues_json_batch = get_results_batch()
+        total = issues_json_batch['total']
+        log.info(issues_json_batch)
+        issues_array = issues_json_batch['issues']
+        for issue in issues_array:
+            object_id = issue['id']
+            object_value = issue
+            update_ts = issue['updated']
 
-    log.info(issues_json_batch)
+            insert_stg_data('issues', object_id, object_value, update_ts)
+            processed_count += 1
+        if total <= var.JQL_BATCH_SIZE:
+            break
+
+
+def insert_stg_data(table, object_id, object_value, update_ts):
+    conn = dwh_util.get_dwh_connection()
+    cur = conn.cursor()
+    cur.execute(
+        f"""
+            INSERT INTO {table} (object_id, object_value, update_ts)
+            VALUES (%(object_id)s, %(object_value)s, %(update_ts)s)
+            ON CONFLICT (object_id) DO UPDATE
+                SET object_value    = EXCLUDED.object_value,
+                    update_ts  = EXCLUDED.update_ts;
+            """,
+        {
+            "object_id": object_id,
+            "object_value": object_value,
+            "update_ts": update_ts
+        }
+    )
+    wf_settings = dutil.json2str({LAST_LOADED_TS_KEY: update_ts})
+    cur.execute(
+        f"""
+        INSERT INTO {var.STG_WF_TABLE_NAME} (workflow_key, workflow_settings)
+        VALUES (%(etl_key)s, %(etl_setting)s)
+        ON CONFLICT (workflow_key) DO UPDATE
+            SET workflow_settings = EXCLUDED.workflow_settings;
+        """,
+        {
+            "etl_key": table,
+            "etl_setting": str(wf_settings)
+        }
+    )
+    conn.commit()
+    cur.close()
+    conn.close()
 
 
 

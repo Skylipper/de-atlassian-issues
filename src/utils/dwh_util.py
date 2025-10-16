@@ -19,7 +19,7 @@ def get_connection(conn_id, log=logging.getLogger("test")):
     return conn
 
 
-def get_dwh_connection(log=logging.getLogger("test")):
+def get_dwh_connection(log=logging.getLogger("dwh_util")):
     conn = get_connection(var.DWH_CONNECTION_NAME, log)
 
     return conn
