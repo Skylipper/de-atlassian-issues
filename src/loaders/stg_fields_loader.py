@@ -29,6 +29,6 @@ def load_fields(log):
         with conn:
             cur = conn.cursor()
             dwh_util.insert_stg_data(cur, var.STG_FIELDS_TABLE_NAME, object_id, object_value, update_ts.isoformat())
-            dwh_util.update_last_loaded_ts(cur, var.STG_WF_TABLE_NAME, var.STG_ISSUES_TABLE_NAME, update_ts.isoformat())
+            dwh_util.update_last_loaded_ts(cur, var.STG_WF_TABLE_NAME, var.STG_FIELDS_TABLE_NAME, update_ts.isoformat())
 
 
