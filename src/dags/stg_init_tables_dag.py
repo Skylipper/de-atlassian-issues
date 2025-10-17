@@ -25,7 +25,14 @@ def init_stg_dag():
         autocommit=True
     )
 
-    init_stg_issues
+    init_stg_fields = SQLExecuteQueryOperator(
+        task_id="init_stg_fields",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="stg_init_fields.sql",
+        autocommit=True
+    )
+
+    [init_stg_issues, init_stg_fields]
 
 
 dag = init_stg_dag()
