@@ -42,8 +42,7 @@ def get_last_loaded_ts(settings_table, table, logger=log):
         cur.execute(query)
         rows = cur.fetchall()
         if (rows):
-            last_loaded_ts_str = rows[0][0]
-            last_loaded_ts = datetime.strptime(last_loaded_ts_str, var.ATL_TIME_FORMAT)
+            last_loaded_ts = rows[0][0]
             logger.info(f"last_loaded_ts: {last_loaded_ts}")
 
     return last_loaded_ts
