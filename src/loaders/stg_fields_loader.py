@@ -26,7 +26,7 @@ def load_fields(log):
     with conn:
         cur = conn.cursor()
         for field in fields_json:
-            log.info(f"Loading field {field}")
+            log.info(f"Loading field {field['name']}")
             object_id = field['id']
             object_value = json.dumps(field)
             dwh_util.insert_stg_data(cur, var.STG_FIELDS_TABLE_NAME, object_id, object_value, update_ts.isoformat())
