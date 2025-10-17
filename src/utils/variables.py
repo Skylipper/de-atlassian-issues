@@ -18,9 +18,9 @@ API_SEARCH_METHOD_PATH = "rest/api/2/search"
 CLOUD_PROJECT_KEY = "JRACLOUD"
 SRV_PROJECT_KEY = "JRASERVER"
 START_DATE = datetime(2010, 1, 1,0,0,0,0,tzinfo=timezone.utc)
-JQL_RESULTS_RUN_LIMIT = 100
+JQL_RESULTS_RUN_LIMIT = 1000
 JQL_EXPAND = 'changelog'
-JQL_BATCH_SIZE = 50
+JQL_BATCH_SIZE = 100 # Не ставить слишком мало, в JQL поиске есть округление до минут. Если изменений в минуту будет больше, чем количество в пачке, скрипт будетт обрабатывать одни те же значения.
 ISSUE_DATE_FIELD = 'updated'
 PLAIN_JQL = f"project in ('{SRV_PROJECT_KEY}','{CLOUD_PROJECT_KEY}')"
 ATL_TIME_FORMAT = '%Y-%m-%dT%H:%M:%S.%f%z'
