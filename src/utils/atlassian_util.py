@@ -21,10 +21,10 @@ def get_jql_query(date):
     return jql_query
 
 
-def get_jql_results(jql_query):
+def get_jql_results(jql_query, start_at):
     jql_query_encoded = urllib.parse.quote_plus(jql_query)
     conn_info = get_atl_connection_info()
-    url = f"{conn_info.host}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&expand={var.JQL_EXPAND}&maxResults={var.JQL_BATCH_SIZE}"
+    url = f"{conn_info.host}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&expand={var.JQL_EXPAND}&maxResults={var.JQL_BATCH_SIZE}&startAt={start_at}"
 
     payload = {}
     headers = get_atl_headers(conn_info)
