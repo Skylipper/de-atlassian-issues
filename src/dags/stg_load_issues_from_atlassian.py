@@ -22,7 +22,7 @@ def load_issues_func():
 )
 def load_issues_from_atlassian_to_stg():
     load_task = PythonOperator(
-        task_id='check_task',
+        task_id='loads_issues',
         python_callable=load_issues_func
     )
 
