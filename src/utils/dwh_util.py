@@ -3,6 +3,7 @@ import src.utils.variables as var
 import psycopg2
 import json
 
+from datetime import datetime
 from airflow.hooks.base import BaseHook
 
 log = logging.getLogger(__name__)
@@ -41,10 +42,12 @@ def get_last_loaded_ts(settings_table, table, logger=log):
         cur.execute(query)
         rows = cur.fetchall()
         if (rows):
-            last_loaded_ts = rows[0][0]
+            last_loaded_ts_str = rows[0][0]
+            last_loaded_ts = datetime.strptime(last_loaded_ts_str, var.ATL_TIME_FORMAT)
             logger.info(f"last_loaded_ts: {last_loaded_ts}")
 
     return last_loaded_ts
+
 
 def insert_stg_data(cur, table, object_id, object_value, update_ts):
     cur.execute(
@@ -79,6 +82,3 @@ def update_last_loaded_ts(cur, load_setting_table, table, last_loaded_ts):
             "etl_setting": wf_settings
         }
     )
-
-
-

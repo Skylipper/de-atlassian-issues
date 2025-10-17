@@ -63,7 +63,7 @@ def load_issues(log):
                 object_value = json.dumps(issue)
                 update_ts = issue['fields']['updated']
                 log.info(f"{last_load_ts} - {update_ts}")
-                if datetime.strptime(update_ts, var.ATL_TIME_FORMAT).timestamp() > last_load_ts.timestamp():
+                if datetime.strptime(update_ts, var.ATL_TIME_FORMAT) > last_load_ts:
                     last_load_ts = update_ts
                 dwh_util.insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
                 processed_count += 1

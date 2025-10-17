@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from airflow.configuration import conf
 
@@ -17,7 +17,7 @@ REQUEST_RETRY_LIMIT = 5
 API_SEARCH_METHOD_PATH = "rest/api/2/search"
 CLOUD_PROJECT_KEY = "JRACLOUD"
 SRV_PROJECT_KEY = "JRASERVER"
-START_DATE = datetime(2010, 1, 1)
+START_DATE = datetime(2010, 1, 1,0,0,0,0,tzinfo=timezone.utc)
 JQL_LIMIT = 20
 JQL_EXPAND = 'changelog'
 JQL_BATCH_SIZE = 10
