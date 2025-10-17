@@ -14,7 +14,7 @@ def load_fields_func():
 
 @dag(
     start_date=datetime(2025, 10, 15),
-    schedule= '*/10 * * * *',
+    schedule= '0 8 * * *',
     is_paused_upon_creation=True,
     catchup=False,
     tags=['load', 'project', 'stg'],
