@@ -22,7 +22,7 @@ def load_issues(log):
     date = dwh_util.get_last_loaded_ts(var.STG_WF_TABLE_NAME, var.STG_ISSUES_TABLE_NAME)
     while processed_count < var.JQL_RESULTS_RUN_LIMIT:
         log.info(f"Processing {processed_count}/{var.JQL_RESULTS_RUN_LIMIT}")
-        issues_json_batch = get_jql_results_batch(date, batch_number + var.JQL_BATCH_SIZE, log)
+        issues_json_batch = get_jql_results_batch(date, batch_number * var.JQL_BATCH_SIZE, log)
         total = issues_json_batch['total']
         log.info(f"Total: {total}")
         issues_array = issues_json_batch['issues']
