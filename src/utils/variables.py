@@ -26,3 +26,4 @@ JQL_EXPAND = 'changelog'
 ISSUE_DATE_FIELD = 'updated'
 PLAIN_JQL = f"project in ('{SRV_PROJECT_KEY}','{CLOUD_PROJECT_KEY}')"
 ATL_TIME_FORMAT = '%Y-%m-%dT%H:%M:%S.%f%z'
+JIRA_LTS_RELEASES = ['10.3', '9.12','9.4','8.20','8.13','8.5','7.13','7.6','6.4','6.3','6.2','6.1','6.0']
