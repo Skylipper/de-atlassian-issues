@@ -35,9 +35,9 @@ def load_issues(log):
                 log.info(f"{update_ts}: {object_id}")
                 if  update_ts > last_load_ts:
                     last_load_ts = update_ts
-                dwh_util.insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
+                dwh_util.insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts.isoformat())
                 processed_count += 1
-            log.info(f"{last_load_ts}")
+            log.info(f"last_load_ts = {last_load_ts}")
             dwh_util.update_last_loaded_ts(cur, var.STG_WF_TABLE_NAME, var.STG_ISSUES_TABLE_NAME, last_load_ts)
 
         if total <= var.JQL_BATCH_SIZE:
