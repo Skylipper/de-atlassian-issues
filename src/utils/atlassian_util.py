@@ -47,8 +47,8 @@ def get_jql_results_batch():
 
 def load_issues(log):
     processed_count = 0
-    while processed_count < var.JQL_LIMIT:
-        log.info(f"Processing {processed_count}/{var.JQL_LIMIT}")
+    while processed_count < var.JQL_RESULTS_RUN_LIMIT:
+        log.info(f"Processing {processed_count}/{var.JQL_RESULTS_RUN_LIMIT}")
         issues_json_batch = get_jql_results_batch()
         total = issues_json_batch['total']
         log.info(f"Total: {total}")
