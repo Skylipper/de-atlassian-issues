@@ -37,7 +37,7 @@ def get_jql_results(jql_query):
     return response
 
 
-def get_results_batch():
+def get_jql_results_batch():
     date = dwh_util.get_last_loaded_ts(var.STG_WF_TABLE_NAME, var.STG_ISSUES_TABLE_NAME)
     jql_query = get_jql_query(date)
 
@@ -49,79 +49,31 @@ def load_issues(log):
     processed_count = 0
     while processed_count < var.JQL_LIMIT:
         log.info(f"Processing {processed_count}/{var.JQL_LIMIT}")
-        issues_json_batch = get_results_batch()
+        issues_json_batch = get_jql_results_batch()
         total = issues_json_batch['total']
         log.info(f"Total: {total}")
         issues_array = issues_json_batch['issues']
+
         conn = dwh_util.get_dwh_connection()
-        cur = conn.cursor()
-        last_load_ts = var.START_DATE
-        for issue in issues_array:
-            object_id = issue['id']
-            object_value = json.dumps(issue)
-            update_ts = issue['fields']['updated']
-            if datetime.strptime(update_ts,'%Y-%m-%dT%H:%M:%S.%f%z') > last_load_ts:
-                last_load_ts = update_ts
-            insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
-            processed_count += 1
+        with conn:
+            cur = conn.cursor()
+            last_load_ts = var.START_DATE
+            for issue in issues_array:
+                object_id = issue['id']
+                object_value = json.dumps(issue)
+                update_ts = issue['fields']['updated']
+                if datetime.strptime(update_ts, var.ATL_TIME_FORMAT).timestamp() > last_load_ts.timestamp():
+                    last_load_ts = update_ts
+                dwh_util.insert_stg_data(cur, var.STG_ISSUES_TABLE_NAME, object_id, object_value, update_ts)
+                processed_count += 1
+            dwh_util.update_last_loaded_ts(cur, var.STG_WF_TABLE_NAME, var.STG_ISSUES_TABLE_NAME, last_load_ts)
 
-        update_last_loaded_ts(cur,var.STG_ISSUES_TABLE_NAME,last_load_ts)
-
-        conn.commit()
-        cur.close()
-        conn.close()
+        # conn.commit()
+        # cur.close()
+        # conn.close()
 
         if total <= var.JQL_BATCH_SIZE:
             break
-
-def update_last_loaded_ts(cur, table, last_loaded_ts):
-    wf_setting_dict = {LAST_LOADED_TS_KEY: last_loaded_ts}
-    wf_settings = json.dumps(wf_setting_dict)
-
-    cur.execute(
-        f"""
-            INSERT INTO {var.STG_WF_TABLE_NAME} (workflow_key, workflow_settings)
-            VALUES (%(etl_key)s, %(etl_setting)s)
-            ON CONFLICT (workflow_key) DO UPDATE
-                SET workflow_settings = EXCLUDED.workflow_settings;
-            """,
-        {
-            "etl_key": table,
-            "etl_setting": wf_settings
-        }
-    )
-
-def insert_stg_data(cur, table, object_id, object_value, update_ts):
-    cur.execute(
-        f"""
-            INSERT INTO {table} (object_id, object_value, update_ts)
-            VALUES (%(object_id)s, %(object_value)s, %(update_ts)s)
-            ON CONFLICT (object_id) DO UPDATE
-                SET object_value    = EXCLUDED.object_value,
-                    update_ts  = EXCLUDED.update_ts;
-            """,
-        {
-            "object_id": object_id,
-            "object_value": object_value,
-            "update_ts": update_ts
-        }
-    )
-
-    wf_setting_dict = {LAST_LOADED_TS_KEY: update_ts}
-    wf_settings = json.dumps(wf_setting_dict)
-
-    cur.execute(
-        f"""
-        INSERT INTO {var.STG_WF_TABLE_NAME} (workflow_key, workflow_settings)
-        VALUES (%(etl_key)s, %(etl_setting)s)
-        ON CONFLICT (workflow_key) DO UPDATE
-            SET workflow_settings = EXCLUDED.workflow_settings;
-        """,
-        {
-            "etl_key": table,
-            "etl_setting": wf_settings
-        }
-    )
 
 
 def get_atl_headers(conn_info):

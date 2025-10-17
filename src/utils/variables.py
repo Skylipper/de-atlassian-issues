@@ -9,6 +9,7 @@ AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
 DWH_CONNECTION_NAME = "ATLAS_DWH_DB"
 STG_WF_TABLE_NAME = 'stg.load_settings'
 STG_ISSUES_TABLE_NAME = 'stg.issues'
+LAST_LOADED_TS_KEY = "last_loaded_ts"
 
 # ATLASSIAN variables
 ATLASSIAN_CONN_NAME = "ATLASSIAN_REST_API"
@@ -22,3 +23,4 @@ JQL_EXPAND = 'changelog'
 JQL_BATCH_SIZE = 50
 ISSUE_DATE_FIELD = 'updated'
 PLAIN_JQL = f"project in ('{SRV_PROJECT_KEY}','{CLOUD_PROJECT_KEY}')"
+ATL_TIME_FORMAT = '%Y-%m-%dT%H:%M:%S.%f%z'
