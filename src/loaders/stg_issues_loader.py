@@ -18,6 +18,7 @@ def get_jql_results_batch(log):
     return response
 
 def load_issues(log):
+    # Грузим пачками в 1 транзакции
     processed_count = 0
     while processed_count < var.JQL_RESULTS_RUN_LIMIT:
         log.info(f"Processing {processed_count}/{var.JQL_RESULTS_RUN_LIMIT}")
