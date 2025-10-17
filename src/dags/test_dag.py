@@ -1,11 +1,11 @@
+import logging
+from datetime import datetime
+
 from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
-from datetime import datetime
-import src.utils.variables as var
-import src.utils.atlassian_util as atl
-import src.utils.dwh_util as dwh
-import logging
 
+import src.utils.atlassian_util as atl
+import src.utils.variables as var
 from src.loaders.stg_issues_loader import load_issues
 
 log = logging.getLogger("load_data_from_atlassian_dag")

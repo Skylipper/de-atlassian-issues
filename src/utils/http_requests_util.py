@@ -1,7 +1,10 @@
 import logging
-import requests
 import time
+
+import requests
+
 import src.utils.variables as var
+
 
 def execute_request(method, url, headers, payload, expected_code):
     logging.info(f"method: {method}, url: {url}")
@@ -10,7 +13,7 @@ def execute_request(method, url, headers, payload, expected_code):
     response = None
     retries = 0
 
-    for i in range (0, var.REQUEST_RETRY_LIMIT):
+    for i in range(0, var.REQUEST_RETRY_LIMIT):
         response = requests.request("GET", url, headers=headers, data=payload)
         response_code = response.status_code
         if response_code == expected_code:

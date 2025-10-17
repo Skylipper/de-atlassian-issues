@@ -1,10 +1,10 @@
-import logging
-import src.utils.variables as var
-import psycopg2
 import json
+import logging
 
-from datetime import datetime
+import psycopg2
 from airflow.hooks.base import BaseHook
+
+import src.utils.variables as var
 
 log = logging.getLogger(__name__)
 
