@@ -12,6 +12,8 @@ log = logging.getLogger("load_issues")
 def load_issues_func():
     load_issues(log)
 
+#TODO add issue count check
+
 
 @dag(
     start_date=datetime(2025, 10, 15),
