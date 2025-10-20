@@ -45,5 +45,5 @@ def load_issues(log):
             dwh_util.update_last_loaded_ts(cur, var.STG_WF_TABLE_NAME, var.STG_ISSUES_TABLE_NAME, last_load_ts)
 
         batch_number += 1
-        if total <= var.JQL_BATCH_SIZE:
+        if total - var.JQL_BATCH_SIZE * batch_number < 0:
             break
