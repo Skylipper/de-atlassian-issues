@@ -17,7 +17,7 @@ def load_fields_func():
     schedule= '0 8 * * *',
     is_paused_upon_creation=True,
     catchup=False,
-    tags=['load', 'project', 'stg'],
+    tags=['load', 'project', 'stg','atlassian'],
 )
 def load_objects_from_atlassian_to_stg():
     load_fields = PythonOperator(

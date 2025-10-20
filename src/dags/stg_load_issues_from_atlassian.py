@@ -20,7 +20,7 @@ def load_issues_func():
     schedule= '*/40 * * * *',
     is_paused_upon_creation=True,
     catchup=False,
-    tags=['load', 'project', 'stg'],
+    tags=['load', 'project', 'stg','atlassian'],
 )
 def load_issues_from_atlassian_to_stg():
     load_task = PythonOperator(
