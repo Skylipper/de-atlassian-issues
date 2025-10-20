@@ -66,6 +66,7 @@ def insert_stg_data(cur, table, object_id, object_value, update_ts):
 
 
 def update_last_loaded_ts(cur, load_setting_table, table, last_loaded_ts):
+    #TODO find when last updated resets to default date
     wf_setting_dict = {var.LAST_LOADED_TS_KEY: last_loaded_ts.isoformat()}
     wf_settings = json.dumps(wf_setting_dict)
 
