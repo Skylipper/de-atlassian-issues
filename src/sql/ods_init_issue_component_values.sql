@@ -5,7 +5,7 @@ create table if not exists ods.issue_component_values
     project_id     int,
     component_id   int,
     component_name varchar(256),
-    updated_ts     timestamp
+    update_ts     timestamp
 );
 
 alter table ods.issue_component_values

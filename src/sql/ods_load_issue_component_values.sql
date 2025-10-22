@@ -18,4 +18,5 @@ FROM stg.issues
 WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated)
 ON CONFLICT (issue_id,component_id) DO UPDATE
     set project_id     = EXCLUDED.project_id,
-        component_name = EXCLUDED.component_name;
+        component_name = EXCLUDED.component_name,
+        update_ts      = EXCLUDED.update_ts;
