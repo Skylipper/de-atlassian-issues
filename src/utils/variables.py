@@ -8,8 +8,10 @@ AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
 # DWH variables
 DWH_CONNECTION_NAME = "ATLAS_DWH_DB"
 STG_WF_TABLE_NAME = 'stg.load_settings'
+ODS_WF_TABLE_NAME = 'ods.load_settings'
 STG_ISSUES_TABLE_NAME = 'stg.issues'
 STG_FIELDS_TABLE_NAME = 'stg.fields'
+ODS_ISSUE_COMPS_TABLE_NAME = 'ods.issue_component_values'
 LAST_LOADED_TS_KEY = "last_loaded_ts"
 
 # ATLASSIAN variables

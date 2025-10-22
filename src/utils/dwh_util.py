@@ -82,3 +82,10 @@ def update_last_loaded_ts(cur, load_setting_table, table, last_loaded_ts):
             "etl_setting": wf_settings
         }
     )
+
+
+def get_query_string_from_file(file_path):
+    with open(file_path, 'r') as file:
+        query_string = file.read()
+
+    return query_string
