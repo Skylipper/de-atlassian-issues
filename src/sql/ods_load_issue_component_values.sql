@@ -1,7 +1,7 @@
 WITH last_updated as (SELECT COALESCE(
                                      (SELECT (workflow_settings::jsonb ->> 'last_loaded_ts')::timestamp
                                       FROM ods.load_settings
-                                      WHERE workflow_key = 'ods.components'),
+                                      WHERE workflow_key = 'ods.issue_component_values'),
                                      '2010-01-01'::timestamp) as last_loaded_ts)
 
 INSERT
