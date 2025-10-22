@@ -19,7 +19,7 @@ def load_issue_components():
     catchup=False,
     tags=['load', 'project', 'ods','atlassian'],
 )
-def load_issue_components():
+def load_ods_tables():
     load_issue_components_task = PythonOperator(
         task_id='load_issue_components',
         python_callable=load_issue_components
@@ -28,4 +28,4 @@ def load_issue_components():
     load_issue_components_task
 
 
-dag = load_objects_from_atlassian_to_stg()
+dag = load_ods_tables()
