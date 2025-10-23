@@ -27,7 +27,7 @@ def load_issues_f():
 
 @dag(
     start_date=datetime(2025, 10, 22),
-    schedule='*/20 * * * *',
+    schedule='*/10 * * * *',
     is_paused_upon_creation=True,
     catchup=False,
     tags=['load', 'project', 'ods', 'atlassian'],
