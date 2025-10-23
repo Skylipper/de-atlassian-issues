@@ -30,3 +30,6 @@ SELECT object_id::int                                               as issue_id,
        update_ts                                                    as update_ts
 FROM stg.issues
 WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated)
+ON CONFLICT (issue_id,version_id) DO UPDATE
+    set version_name = EXCLUDED.version_name,
+        update_ts    = EXCLUDED.update_ts
