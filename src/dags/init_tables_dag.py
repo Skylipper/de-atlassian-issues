@@ -70,11 +70,18 @@ def init_stg_dag():
         autocommit=True
     )
 
+    init_ods_issues = SQLExecuteQueryOperator(
+        task_id="ods_init_issues",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="ods/init_issues.sql",
+        autocommit=True
+    )
+
 
 
 
     [init_stg_issues, init_stg_fields, init_stg_load_settings] >> join_task
-    join_task >> [init_ods_load_settings, init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions]
+    join_task >> [init_ods_load_settings, init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions, init_ods_issues]
 
 
 dag = init_stg_dag()
