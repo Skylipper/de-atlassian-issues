@@ -29,6 +29,8 @@ SELECT (object_value::jsonb ->> 'id')::int                                      
        (object_value::jsonb -> 'fields' -> 'assignee' ->> 'displayName')::varchar(128) as assignee_name
 FROM stg.issues
 WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated)
+
+LIMIT 10000
 ON CONFLICT (issue_id) DO UPDATE
     set issue_key      = EXCLUDED.issue_key,
         project_id     = EXCLUDED.project_id,
