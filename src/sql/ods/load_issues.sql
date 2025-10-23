@@ -33,7 +33,7 @@ SELECT (object_value::jsonb ->> 'id')::int                                      
 FROM stg.issues
 WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated)
 ORDER BY update_ts
-LIMIT 10000
+LIMIT 1000
 ON CONFLICT (issue_id) DO UPDATE
     set issue_key      = EXCLUDED.issue_key,
         project_id     = EXCLUDED.project_id,
