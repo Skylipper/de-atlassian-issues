@@ -6,7 +6,7 @@ from airflow.operators.python import PythonOperator
 
 import src.utils.atlassian_util as atl
 import src.utils.variables as var
-from src.loaders.stg_issues_loader import load_issues
+from src.loaders.stg.issues_loader import load_issues
 
 log = logging.getLogger("load_data_from_atlassian_dag")
 

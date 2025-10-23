@@ -3,7 +3,7 @@ from datetime import datetime
 
 from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
-from src.loaders.ods_issue_components_loader import load_issue_components
+from src.loaders.ods.issue_components_loader import load_issue_components
 
 log = logging.getLogger("load_objects")
 

@@ -3,7 +3,7 @@ from datetime import datetime
 
 from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
-from src.loaders.stg_fields_loader import load_fields
+from src.loaders.stg.fields_loader import load_fields
 
 log = logging.getLogger("load_objects")
 

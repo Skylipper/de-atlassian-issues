@@ -24,35 +24,35 @@ def init_stg_dag():
     init_stg_issues = SQLExecuteQueryOperator(
         task_id="init_stg_issues",
         conn_id=var.DWH_CONNECTION_NAME,
-        sql="stg_init_issues.sql",
+        sql="stg/stg_init_issues.sql",
         autocommit=True
     )
 
     init_stg_fields = SQLExecuteQueryOperator(
         task_id="init_stg_fields",
         conn_id=var.DWH_CONNECTION_NAME,
-        sql="stg_init_fields.sql",
+        sql="stg/stg_init_fields.sql",
         autocommit=True
     )
 
     init_stg_load_settings = SQLExecuteQueryOperator(
         task_id="stg_init_load_settings",
         conn_id=var.DWH_CONNECTION_NAME,
-        sql="stg_init_load_settings.sql.sql",
+        sql="stg/stg_init_load_settings.sql.sql",
         autocommit=True
     )
 
     init_ods_load_settings = SQLExecuteQueryOperator(
         task_id="ods_init_load_settings",
         conn_id=var.DWH_CONNECTION_NAME,
-        sql="ods_init_load_settings.sql",
+        sql="ods/ods_init_load_settings.sql",
         autocommit=True
     )
 
     init_ods_issue_components = SQLExecuteQueryOperator(
         task_id="ods_init_issue_components",
         conn_id=var.DWH_CONNECTION_NAME,
-        sql="ods_init_issue_component_values.sql",
+        sql="ods/ods_init_issue_component_values.sql",
         autocommit=True
     )
 
