@@ -16,10 +16,7 @@ SELECT object_value::jsonb ->> 'id'                                    as issue_
        object_value::jsonb -> 'fields' -> 'reporter' ->> 'key'         as reporter_key,
        object_value::jsonb -> 'fields' -> 'reporter' ->> 'displayName' as reporter_name,
        object_value::jsonb -> 'fields' -> 'assignee' ->> 'key'         as assignee_key,
-       object_value::jsonb -> 'fields' -> 'assignee' ->> 'displayName' as assignee_name,
-       object_value::jsonb -> 'fields' -> 'versions'                   as versions,
-       object_value::jsonb -> 'fields' -> 'fixVersions'                as fixVersions,
-       object_value::jsonb -> 'fields' -> 'components'                 as components
+       object_value::jsonb -> 'fields' -> 'assignee' ->> 'displayName' as assignee_name
 
 FROM stg.issues
 WHERE object_id = '2104836'

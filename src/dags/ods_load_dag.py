@@ -3,13 +3,19 @@ from datetime import datetime
 
 from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
-from src.loaders.ods.issue_components_loader import load_issue_components
+import src.loaders.ods.ods_tables_loader as otl
 
 log = logging.getLogger("load_objects")
 
 
 def load_issue_components_f():
-    load_issue_components()
+    otl.load_issue_components()
+
+def load_issue_versions_f():
+    otl.load_issue_versions()
+
+def load_issue_fix_versions_f():
+    otl.load_issue_fix_versions()
 
 
 @dag(
@@ -24,8 +30,16 @@ def load_ods_tables():
         task_id='load_issue_components',
         python_callable=load_issue_components_f
     )
+    load_issue_versions_task = PythonOperator(
+        task_id='load_issue_versions',
+        python_callable=load_issue_versions_f
+    )
+    load_issue_fix_versions_task = PythonOperator(
+        task_id='load_issue_fix_versions',
+        python_callable=load_issue_fix_versions_f
+    )
 
-    load_issue_components_task
+    [load_issue_components_task, load_issue_versions_task, load_issue_fix_versions_task]
 
 
 dag = load_ods_tables()

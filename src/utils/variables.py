@@ -12,6 +12,8 @@ ODS_WF_TABLE_NAME = 'ods.load_settings'
 STG_ISSUES_TABLE_NAME = 'stg.issues'
 STG_FIELDS_TABLE_NAME = 'stg.fields'
 ODS_ISSUE_COMPS_TABLE_NAME = 'ods.issue_component_values'
+ODS_ISSUE_VERSIONS_TABLE_NAME = 'ods.issue_version_values'
+ODS_ISSUE_FIX_VERSIONS_TABLE_NAME = 'ods.issue_version_values'
 LAST_LOADED_TS_KEY = "last_loaded_ts"
 
 # ATLASSIAN variables
