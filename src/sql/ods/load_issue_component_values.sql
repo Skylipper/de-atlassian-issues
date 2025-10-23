@@ -1,3 +1,18 @@
+-- В одной задаче может быть от 0 до нескольких компонентов, они могут быть как добавлены, так и удалены.
+-- Поэтому для обновленных задач удаляем записи и вставляем свежую версию
+WITH last_updated as (SELECT COALESCE(
+                                     (SELECT (workflow_settings::jsonb ->> 'last_loaded_ts')::timestamp
+                                      FROM ods.load_settings
+                                      WHERE workflow_key = 'ods.issue_component_values'),
+                                     '2010-01-01'::timestamp) as last_loaded_ts)
+DELETE
+FROM ods.issue_component_values
+WHERE issue_id in
+      (SELECT object_id::int as issue_id
+       FROM stg.issues
+       WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated));
+
+
 WITH last_updated as (SELECT COALESCE(
                                      (SELECT (workflow_settings::jsonb ->> 'last_loaded_ts')::timestamp
                                       FROM ods.load_settings
@@ -15,7 +30,3 @@ SELECT object_id::int                                               as issue_id,
        update_ts                                                    as update_ts
 FROM stg.issues
 WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated)
-ON CONFLICT (issue_id,component_id) DO UPDATE
-    set project_id     = EXCLUDED.project_id,
-        component_name = EXCLUDED.component_name,
-        update_ts      = EXCLUDED.update_ts;
