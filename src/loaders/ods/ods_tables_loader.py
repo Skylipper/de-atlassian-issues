@@ -47,6 +47,6 @@ def load_issues():
         cur = conn.cursor()
         query = dwh_util.get_query_string_from_file(f'{var.AIRFLOW_DAGS_DIR}/src/sql/ods/load_issues.sql')
         cur.execute(query)
-        cur.execute(f"SELECT COALESCE(MAX(update_ts),'{last_updated}') last_updated FROM {table};")
+        cur.execute(f"SELECT COALESCE(MAX(updated),'{last_updated}') last_updated FROM {table};")
         update_ts = cur.fetchall()[0][0]
         dwh_util.update_last_loaded_ts(cur, stat_table, table, update_ts)
