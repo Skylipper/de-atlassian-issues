@@ -7,7 +7,7 @@ WITH last_updated as (SELECT COALESCE(
 INSERT
 INTO ods.issues (issue_id, issue_key, project_id, project_key, issuetype_id, issuetype_name, priority_id, priority_name,
                  resolution_id, resolution_name, status_id, status_name, votes, creator_key, creator_name, reporter_key,
-                 reporter_name, assignee_key, assignee_name)
+                 reporter_name, assignee_key, assignee_name, created, updated,resolutiondate)
 SELECT (object_value::jsonb ->> 'id')::int                                             as issue_id,
        (object_value::jsonb ->> 'key')::varchar(32)                                    as issue_key,
        (object_value::jsonb -> 'fields' -> 'project' ->> 'id')::int                    as project_id,
@@ -26,10 +26,13 @@ SELECT (object_value::jsonb ->> 'id')::int                                      
        (object_value::jsonb -> 'fields' -> 'reporter' ->> 'key')::varchar(32)          as reporter_key,
        (object_value::jsonb -> 'fields' -> 'reporter' ->> 'displayName')::varchar(128) as reporter_name,
        (object_value::jsonb -> 'fields' -> 'assignee' ->> 'key')::varchar(32)          as assignee_key,
-       (object_value::jsonb -> 'fields' -> 'assignee' ->> 'displayName')::varchar(128) as assignee_name
+       (object_value::jsonb -> 'fields' -> 'assignee' ->> 'displayName')::varchar(128) as assignee_name,
+       (object_value::jsonb -> 'fields' ->> 'created')::timestamp        as created,
+       (object_value::jsonb -> 'fields' ->> 'updated')::timestamp        as updated,
+       (object_value::jsonb -> 'fields' ->> 'resolutiondate')::timestamp as resolutiondate
 FROM stg.issues
 WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated)
-
+ORDER BY update_ts
 LIMIT 10000
 ON CONFLICT (issue_id) DO UPDATE
     set issue_key      = EXCLUDED.issue_key,

@@ -18,7 +18,10 @@ CREATE TABLE IF NOT EXISTS ods.issues
     reporter_key    varchar(32),
     reporter_name   varchar(128),
     assignee_key    varchar(32),
-    assignee_name   varchar(128)
+    assignee_name   varchar(128),
+    created         timestamp,
+    updated         timestamp,
+    resolutiondate  timestamp
 );
 
 
