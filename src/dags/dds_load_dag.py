@@ -8,8 +8,13 @@ import src.loaders.dds.dds_tables_loader as dtl
 
 log = logging.getLogger("load_objects")
 
+
 def load_d_projects_f():
     dtl.load_d_projects()
+
+
+def load_d_priorities_f():
+    dtl.load_d_priorities()
 
 
 @dag(
@@ -25,7 +30,12 @@ def load_dds_tables():
         python_callable=load_d_projects_f
     )
 
-    [load_d_projects]
+    load_d_priorities = PythonOperator(
+        task_id='load_d_priorities',
+        python_callable=load_d_priorities_f
+    )
+
+    [load_d_projects, load_d_priorities]
 
 
 dag = load_dds_tables()
