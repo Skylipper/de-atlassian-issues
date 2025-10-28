@@ -77,11 +77,102 @@ def init_stg_dag():
         autocommit=True
     )
 
+    init_dds_load_settings = SQLExecuteQueryOperator(
+        task_id="dds_init_load_settings",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_load_settings.sql",
+        autocommit=True
+    )
 
+    init_dds_d_projects = SQLExecuteQueryOperator(
+        task_id="init_dds_d_projects",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_d_projects.sql",
+        autocommit=True
+    )
+
+    init_dds_d_priorities = SQLExecuteQueryOperator(
+        task_id="init_dds_d_priorities",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_d_priorities.sql",
+    )
+
+    init_dds_d_issuetypes = SQLExecuteQueryOperator(
+        task_id="init_dds_d_issuetypes",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_d_issuetypes.sql",
+        autocommit=True
+    )
+
+    init_dds_d_statuses = SQLExecuteQueryOperator(
+        task_id="init_dds_d_statuses",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_d_statuses.sql",
+        autocommit=True
+    )
+
+    init_dds_d_resolutions = SQLExecuteQueryOperator(
+        task_id="init_dds_d_resolutions",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_d_resolutions.sql",
+        autocommit=True
+    )
+
+    init_dds_d_users = SQLExecuteQueryOperator(
+        task_id="init_dds_d_users",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_d_users.sql",
+        autocommit=True
+    )
+
+    init_dds_d_components = SQLExecuteQueryOperator(
+        task_id="init_dds_d_components",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_d_components.sql",
+        autocommit=True
+    )
+
+    init_dds_d_versions = SQLExecuteQueryOperator(
+        task_id="init_dds_d_versions",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_d_versions.sql",
+        autocommit=True
+    )
+
+    init_dds_f_issues = SQLExecuteQueryOperator(
+        task_id="init_dds_f_issues",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_f_issues.sql",
+        autocommit=True
+    )
+
+    init_dds_f_issue_component_values = SQLExecuteQueryOperator(
+        task_id="init_dds_f_issue_component_values",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_f_issue_component_values.sql",
+        autocommit=True
+    )
+
+    init_dds_f_issue_version_values = SQLExecuteQueryOperator(
+        task_id="init_dds_f_issue_version_values",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_f_issue_version_values.sql",
+        autocommit=True
+    )
+
+    init_dds_f_issue_fix_version_values = SQLExecuteQueryOperator(
+        task_id="init_dds_f_issue_fix_version_values",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="dds/init_f_issue_fix_version_values.sql",
+        autocommit=True
+    )
 
 
     [init_stg_issues, init_stg_fields, init_stg_load_settings] >> join_task
-    join_task >> [init_ods_load_settings, init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions, init_ods_issues]
+    join_task >> [init_ods_load_settings, init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions, init_ods_issues] >> join_task
+    join_task >> [init_dds_load_settings, init_dds_d_projects, init_dds_d_statuses, init_dds_d_resolutions, init_dds_d_issuetypes, init_dds_d_priorities, init_dds_d_users] >> join_task
+    join_task >> [init_dds_d_components, init_dds_d_versions] >> init_dds_f_issues
+    init_dds_f_issues >> [init_dds_f_issue_component_values, init_dds_f_issue_version_values, init_dds_f_issue_fix_version_values]
 
 
 dag = init_stg_dag()
