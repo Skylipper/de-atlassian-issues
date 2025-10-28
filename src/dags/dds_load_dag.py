@@ -40,7 +40,7 @@ def load_dds_tables():
 
     load_dds_components = PythonOperator(
         task_id='load_dds_components',
-        python_callable=load_d_components_f()
+        python_callable=load_d_components_f
     )
 
     [load_d_projects, load_d_priorities] >> load_dds_components
