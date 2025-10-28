@@ -168,9 +168,9 @@ def init_stg_dag():
     )
 
 
-    [init_stg_issues, init_stg_fields, init_stg_load_settings] >> join_task
-    join_task >> [init_ods_load_settings, init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions, init_ods_issues] >> join_task
-    join_task >> [init_dds_load_settings, init_dds_d_projects, init_dds_d_statuses, init_dds_d_resolutions, init_dds_d_issuetypes, init_dds_d_priorities, init_dds_d_users] >> join_task
+    [init_stg_issues, init_stg_fields, init_stg_load_settings] >> init_ods_load_settings
+    init_ods_load_settings >> [init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions, init_ods_issues] >> init_dds_load_settings
+    init_dds_load_settings >> [init_dds_d_projects, init_dds_d_statuses, init_dds_d_resolutions, init_dds_d_issuetypes, init_dds_d_priorities, init_dds_d_users] >> join_task
     join_task >> [init_dds_d_components, init_dds_d_versions] >> init_dds_f_issues
     init_dds_f_issues >> [init_dds_f_issue_component_values, init_dds_f_issue_version_values, init_dds_f_issue_fix_version_values]
 
