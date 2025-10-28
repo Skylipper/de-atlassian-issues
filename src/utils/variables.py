@@ -19,6 +19,16 @@ ODS_ISSUES_TABLE_NAME = 'ods.issues'
 DDS_SCHEMA_NAME = 'dds'
 DDS_D_PROJECTS_TABLE_NAME = 'd_projects'
 DDS_D_PRIORITIES_TABLE_NAME = 'd_priorities'
+DDS_D_ISSUETYPES_TABLE_NAME = 'd_issuetypes'
+DDS_D_RESOLUTIONS_TABLE_NAME = 'd_resolutions'
+DDS_D_STATUSES_TABLE_NAME = 'd_statuses'
+DDS_D_USERS_TABLE_NAME = 'd_users'
+DDS_D_VERSIONS_TABLE_NAME = 'd_versions'
+DDS_D_COMPONENTS_TABLE_NAME = 'd_components'
+DDS_F_ISSUES_TABLE_NAME = 'f_issues'
+DDS_F_ISSUE_COMPONENT_TABLE_NAME = 'f_issue_component_values'
+DDS_F_ISSUE_VERSIONS_TABLE_NAME = 'f_issue_version_values'
+DDS_F_ISSUE_FIX_VERSIONS_TABLE_NAME = 'f_issue_fix_version_values'
 LAST_LOADED_TS_KEY = "last_loaded_ts"
 
 # ATLASSIAN variables
