@@ -8,6 +8,9 @@ import src.loaders.dds.dds_tables_loader as dtl
 
 log = logging.getLogger("load_objects")
 
+def load_d_projects_f():
+    dtl.load_d_projects()
+
 
 @dag(
     start_date=datetime(2025, 10, 22),
@@ -19,7 +22,7 @@ log = logging.getLogger("load_objects")
 def load_dds_tables():
     load_d_projects = PythonOperator(
         task_id='load_d_projects',
-        python_callable=dtl.load_d_projects()
+        python_callable=load_d_projects_f
     )
 
     [load_d_projects]

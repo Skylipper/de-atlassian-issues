@@ -2,6 +2,7 @@ from src.utils import  dwh_util
 import src.utils.variables as var
 
 stat_table = var.DDS_WF_TABLE_NAME
+schema_name = var.DDS_SCHEMA_NAME
 
 def load_data_for_table(table, sql_file_path, update_field):
     conn = dwh_util.get_dwh_connection()
@@ -20,6 +21,12 @@ def load_data_for_table(table, sql_file_path, update_field):
         dwh_util.update_last_loaded_ts(cur, stat_table, table, update_ts)
 
 def load_d_projects():
-    sql_file_path = f'{var.AIRFLOW_DAGS_DIR}/src/sql/dds/load_d_projects.sql'
-    load_data_for_table(var.DDS_D_PROJECTS_TABLE_NAME, sql_file_path, 'update_ts')
+    table = var.DDS_D_PROJECTS_TABLE_NAME
+    sql_file_path = f'{var.AIRFLOW_DAGS_DIR}/src/sql/{schema_name}/load_{table}.sql'
+    load_data_for_table(table, sql_file_path, 'update_ts')
+
+def load_d_priorities():
+    table = var.DDS_D_PRIORITIES_TABLE_NAME
+    sql_file_path = f'{var.AIRFLOW_DAGS_DIR}/src/sql/{schema_name}/load_{table}.sql'
+    load_data_for_table(table, sql_file_path, 'update_ts')
 
