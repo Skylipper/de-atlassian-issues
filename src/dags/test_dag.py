@@ -7,22 +7,14 @@ from airflow.operators.python import PythonOperator
 import src.loaders.ods.ods_tables_loader as otl
 import src.utils.atlassian_util as atl
 import src.utils.variables as var
-from src.loaders.stg.issues_loader import load_issues
+from src.loaders.dds.dds_tables_loader import load_d_projects
 
 log = logging.getLogger("load_data_from_atlassian_dag")
 
 
-def check_task_func():
-    atl_conn_info = atl.get_atl_connection_info()
-    log.info(atl_conn_info.host)
+def load_dds():
+    load_d_projects()
 
-    load_issues(log)
-
-    log.info(var.PLAIN_JQL)
-
-
-def load_issues_f():
-    otl.load_issues()
 
 
 @dag(
@@ -34,8 +26,8 @@ def load_issues_f():
 )
 def test():
     load_issues_task = PythonOperator(
-        task_id='load_issues',
-        python_callable=load_issues_f
+        task_id='load_d_projects',
+        python_callable=load_dds
     )
 
     load_issues_task
