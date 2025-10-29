@@ -9,15 +9,16 @@ import src.loaders.dds.dds_tables_loader as dtl
 log = logging.getLogger("load_objects")
 
 
-def load_d_projects_f():
-    dtl.load_d_projects()
-
-
-def load_d_priorities_f():
-    dtl.load_d_priorities()
-
-def load_d_components_f():
-    dtl.load_d_components()
+# def load_d_projects_f():
+#     dtl.load_d_projects()
+#
+#
+# def load_d_priorities_f():
+#     dtl.load_d_priorities()
+#
+#
+# def load_d_components_f():
+#     dtl.load_d_components()
 
 
 @dag(
@@ -30,17 +31,17 @@ def load_d_components_f():
 def load_dds_tables():
     load_d_projects = PythonOperator(
         task_id='load_d_projects',
-        python_callable=load_d_projects_f
+        python_callable=dtl.load_d_projects
     )
 
     load_d_priorities = PythonOperator(
         task_id='load_d_priorities',
-        python_callable=load_d_priorities_f
+        python_callable=dtl.load_d_priorities
     )
 
     load_dds_components = PythonOperator(
         task_id='load_dds_components',
-        python_callable=load_d_components_f
+        python_callable=dtl.load_d_components
     )
 
     load_dds_issuetypes = PythonOperator(
