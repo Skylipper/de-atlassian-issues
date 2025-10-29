@@ -7,7 +7,6 @@ import src.utils.variables as var
 
 
 def execute_request(method, url, headers, payload):
-    # TODO add request timeout
     logging.info(f"method: {method}, url: {url}")
 
     response_code = 0
