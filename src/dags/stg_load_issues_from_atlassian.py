@@ -4,7 +4,7 @@ from datetime import datetime
 from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
 
-from src.loaders.stg.issues_loader import load_issues
+from src.loaders.stg.stg_issues_loader import load_issues
 
 log = logging.getLogger("load_issues")
 
