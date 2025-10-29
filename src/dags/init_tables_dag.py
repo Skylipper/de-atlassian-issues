@@ -18,7 +18,7 @@ log = logging.getLogger("ds_init_dag")
     template_searchpath=[f'{var.AIRFLOW_DAGS_DIR}/src/sql/'],
     is_paused_upon_creation=True
 )
-def init_stg_dag():
+def init_tables_dag():
     join_task = EmptyOperator(task_id='join_point')
 
     init_stg_issues = SQLExecuteQueryOperator(
@@ -175,4 +175,4 @@ def init_stg_dag():
     init_dds_f_issues >> [init_dds_f_issue_component_values, init_dds_f_issue_version_values, init_dds_f_issue_fix_version_values]
 
 
-dag = init_stg_dag()
+dag = init_tables_dag()
