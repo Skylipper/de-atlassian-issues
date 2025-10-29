@@ -65,17 +65,17 @@ def load_dds_tables():
 
     load_dds_f_issue_components = PythonOperator(
         task_id='load_dds_f_issue_component_values',
-        python_callable=dtl.load_f_issue_components()
+        python_callable=dtl.load_f_issue_components
     )
 
     load_dds_f_issue_versions = PythonOperator(
         task_id='load_dds_f_issue_versions',
-        python_callable=dtl.load_f_issue_versions()
+        python_callable=dtl.load_f_issue_versions
     )
 
     load_dds_f_issue_fix_versions = PythonOperator(
         task_id='load_dds_f_issue_fix_versions',
-        python_callable=dtl.load_f_issue_fix_versions()
+        python_callable=dtl.load_f_issue_fix_versions
     )
 
     join_task1 = EmptyOperator(task_id='join_point')
