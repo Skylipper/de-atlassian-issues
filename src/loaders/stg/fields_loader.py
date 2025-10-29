@@ -13,7 +13,7 @@ def get_fields(log):
     payload = {}
     headers = get_atl_headers(conn_info)
 
-    response = http_requests_util.execute_request("GET", url, headers, payload, 200)
+    response = http_requests_util.execute_request("GET", url, headers, payload)
 
     return response
 
