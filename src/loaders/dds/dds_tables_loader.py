@@ -1,25 +1,8 @@
 import src.utils.variables as var
-from src.utils import dwh_util
+from src.utils.loader_util import load_data_for_table
 
 stat_table = var.DDS_WF_TABLE_NAME
 schema_name = var.DDS_SCHEMA_NAME
-
-def load_data_for_table(schema, table, stat_table):
-    sql_file_path = f'{var.AIRFLOW_DAGS_DIR}/src/sql/{schema}/load_{table}.sql'
-    conn = dwh_util.get_dwh_connection()
-    last_updated = dwh_util.get_last_loaded_ts(stat_table, f'{schema}.{table}')
-    with conn:
-        cur = conn.cursor()
-        # Insert and update data
-        query = dwh_util.get_query_string_from_file(sql_file_path)
-        cur.execute(query)
-
-        # Get last updated value
-        cur.execute(f"SELECT COALESCE(MAX(update_ts),'{last_updated}') last_updated FROM {schema}.{table};")
-        update_ts = cur.fetchall()[0][0]
-
-        # Fill statistics table
-        dwh_util.update_last_loaded_ts(cur, stat_table, f'{schema}.{table}', update_ts)
 
 
 def load_d_projects():
@@ -28,77 +11,55 @@ def load_d_projects():
 
 
 def load_d_priorities():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
-
     table = var.DDS_D_PRIORITIES_TABLE_NAME
     load_data_for_table(schema_name, table, stat_table)
 
-def load_d_issuetypes():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
 
+def load_d_issuetypes():
     table = var.DDS_D_ISSUETYPES_TABLE_NAME
     load_data_for_table(schema_name, table, stat_table)
 
-def load_d_components():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
 
+def load_d_components():
     table = var.DDS_D_COMPONENTS_TABLE_NAME
     load_data_for_table(schema_name, table, stat_table)
 
-def load_d_resolutions():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
 
+def load_d_resolutions():
     table = var.DDS_D_RESOLUTIONS_TABLE_NAME
     load_data_for_table(schema_name, table, stat_table)
 
-def load_d_statuses():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
 
+def load_d_statuses():
     table = var.DDS_D_STATUSES_TABLE_NAME
     load_data_for_table(schema_name, table, stat_table)
 
-def load_d_users():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
 
+def load_d_users():
     table = var.DDS_D_USERS_TABLE_NAME
-    load_data_for_table(schema_name, table, stat_table, 'update_ts')
+    load_data_for_table(schema_name, table, stat_table)
+
 
 def load_d_versions():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
-
     table = var.DDS_D_VERSIONS_TABLE_NAME
-    load_data_for_table(schema_name, table, stat_table, 'update_ts')
+    load_data_for_table(schema_name, table, stat_table)
+
 
 def load_f_issues():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
-
     table = var.DDS_F_ISSUES_TABLE_NAME
-    load_data_for_table(schema_name, table, stat_table, 'update_ts')
+    load_data_for_table(schema_name, table, stat_table)
+
 
 def load_f_issue_components():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
-
     table = var.DDS_F_ISSUE_COMPONENT_TABLE_NAME
-    load_data_for_table(schema_name, table, stat_table, 'update_ts')
+    load_data_for_table(schema_name, table, stat_table)
+
 
 def load_f_issue_versions():
-
-
     table = var.DDS_F_ISSUE_VERSIONS_TABLE_NAME
-    load_data_for_table(schema_name, table, stat_table, 'update_ts')
+    load_data_for_table(schema_name, table, stat_table)
+
 
 def load_f_issue_fix_versions():
-    stat_table = var.DDS_WF_TABLE_NAME
-    schema_name = var.DDS_SCHEMA_NAME
-
     table = var.DDS_F_ISSUE_FIX_VERSIONS_TABLE_NAME
-    load_data_for_table(schema_name, table, stat_table, 'update_ts')
+    load_data_for_table(schema_name, table, stat_table)
