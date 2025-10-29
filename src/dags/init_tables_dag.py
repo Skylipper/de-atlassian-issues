@@ -2,8 +2,8 @@ import logging
 
 import pendulum
 from airflow.decorators import dag
-from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.operators.empty import EmptyOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 
 import src.utils.variables as var
 
@@ -14,7 +14,7 @@ log = logging.getLogger("ds_init_dag")
     schedule_interval=None,
     start_date=pendulum.datetime(2022, 5, 5, tz="UTC"),
     catchup=False,
-    tags=['project', 'init', 'sql','atlassian'],
+    tags=['project', 'init', 'sql', 'atlassian'],
     template_searchpath=[f'{var.AIRFLOW_DAGS_DIR}/src/sql/'],
     is_paused_upon_creation=True
 )
@@ -27,7 +27,6 @@ def init_tables_dag():
         sql="stg/init_issues.sql",
         autocommit=True
     )
-
 
     init_stg_load_settings = SQLExecuteQueryOperator(
         task_id="stg_init_load_settings",
@@ -161,12 +160,14 @@ def init_tables_dag():
         autocommit=True
     )
 
-
-    [init_stg_issues, init_stg_fields, init_stg_load_settings] >> init_ods_load_settings
-    init_ods_load_settings >> [init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions, init_ods_issues] >> init_dds_load_settings
-    init_dds_load_settings >> [init_dds_d_projects, init_dds_d_statuses, init_dds_d_resolutions, init_dds_d_issuetypes, init_dds_d_priorities, init_dds_d_users] >> join_task
+    [init_stg_issues, init_stg_load_settings] >> init_ods_load_settings
+    init_ods_load_settings >> [init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions,
+                               init_ods_issues] >> init_dds_load_settings
+    init_dds_load_settings >> [init_dds_d_projects, init_dds_d_statuses, init_dds_d_resolutions, init_dds_d_issuetypes,
+                               init_dds_d_priorities, init_dds_d_users] >> join_task
     join_task >> [init_dds_d_components, init_dds_d_versions] >> init_dds_f_issues
-    init_dds_f_issues >> [init_dds_f_issue_component_values, init_dds_f_issue_version_values, init_dds_f_issue_fix_version_values]
+    init_dds_f_issues >> [init_dds_f_issue_component_values, init_dds_f_issue_version_values,
+                          init_dds_f_issue_fix_version_values]
 
 
 dag = init_tables_dag()
