@@ -16,4 +16,4 @@ def load_data_for_table(schema, table, stat_table, update_ts_field):
         update_ts = cur.fetchall()[0][0]
 
         # Fill statistics table
-        dwh_util.update_last_loaded_ts(cur, stat_table, f'{schema}.{table}', update_ts.isoformat())
+        dwh_util.update_last_loaded_ts(cur, stat_table, f'{schema}.{table}', update_ts)
