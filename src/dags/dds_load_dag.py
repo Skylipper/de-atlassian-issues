@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 
 from airflow.decorators import dag, task
+from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 
 import src.loaders.dds.dds_tables_loader as dtl
@@ -57,8 +58,32 @@ def load_dds_tables():
         python_callable=dtl.load_d_versions
     )
 
+    load_dds_f_issues = PythonOperator(
+        task_id='load_dds_f_issues',
+        python_callable=dtl.load_f_issues
+    )
+
+    load_dds_f_issue_components = PythonOperator(
+        task_id='load_dds_f_issue_component_values',
+        python_callable=dtl.load_f_issue_components()
+    )
+
+    load_dds_f_issue_versions = PythonOperator(
+        task_id='load_dds_f_issue_versions',
+        python_callable=dtl.load_f_issue_versions()
+    )
+
+    load_dds_f_issue_fix_versions = PythonOperator(
+        task_id='load_dds_f_issue_fix_versions',
+        python_callable=dtl.load_f_issue_fix_versions()
+    )
+
+    join_task1 = EmptyOperator(task_id='join_point')
+
     [load_dds_d_projects, load_dds_d_priorities, load_dds_d_issuetypes,
-     load_dds_d_resolutions, load_dds_d_statuses, load_dds_d_users] >> [load_dds_d_components, load_dds_d_versions]
+     load_dds_d_resolutions, load_dds_d_statuses, load_dds_d_users] >> join_task1
+    join_task1 >> [load_dds_d_components, load_dds_d_versions] >> load_dds_f_issues
+    load_dds_f_issues >> [load_dds_f_issue_components, load_dds_f_issue_versions, load_dds_f_issue_fix_versions]
 
 
 dag = load_dds_tables()
