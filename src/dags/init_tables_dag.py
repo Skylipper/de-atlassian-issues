@@ -28,12 +28,6 @@ def init_tables_dag():
         autocommit=True
     )
 
-    init_stg_fields = SQLExecuteQueryOperator(
-        task_id="init_stg_fields",
-        conn_id=var.DWH_CONNECTION_NAME,
-        sql="stg/init_fields.sql",
-        autocommit=True
-    )
 
     init_stg_load_settings = SQLExecuteQueryOperator(
         task_id="stg_init_load_settings",
