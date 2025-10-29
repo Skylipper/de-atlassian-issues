@@ -17,7 +17,7 @@ def load_issues_func():
 
 @dag(
     start_date=datetime(2025, 10, 15),
-    schedule= '*/60 * * * *',
+    schedule= '10 * * * *',
     is_paused_upon_creation=True,
     catchup=False,
     tags=['load', 'project', 'stg','atlassian'],

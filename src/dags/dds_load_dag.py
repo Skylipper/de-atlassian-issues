@@ -12,7 +12,7 @@ log = logging.getLogger("load_objects")
 
 @dag(
     start_date=datetime(2025, 10, 22),
-    schedule='*/60 * * * *',
+    schedule='40 * * * *',
     is_paused_upon_creation=True,
     catchup=False,
     tags=['load', 'project', 'dds', 'atlassian'],
