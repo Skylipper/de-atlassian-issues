@@ -15,7 +15,8 @@ def execute_request(method, url, headers, payload):
     retries = 0
 
     for i in range(0, var.REQUEST_RETRY_LIMIT):
-        response = requests.request("GET", url, headers=headers, data=payload)
+        response = requests.request("GET", url, headers=headers, data=payload, timeout=15)
+
         response_code = response.status_code
         if response.ok:
             break
