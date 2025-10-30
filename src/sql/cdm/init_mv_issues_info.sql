@@ -1,3 +1,4 @@
+CREATE materialized view if not exists cdm.mv_issues_info AS
 WITH issue_components AS (SELECT icv.issue_id, array_agg(c.component_name) as components
                           FROM dds.f_issue_component_values icv
                                    JOIN dds.d_components c ON icv.component_id = c.component_id

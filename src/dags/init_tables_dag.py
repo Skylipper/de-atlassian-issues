@@ -160,6 +160,13 @@ def init_tables_dag():
         autocommit=True
     )
 
+    init_cdm_mv_issues_info = SQLExecuteQueryOperator(
+        task_id="init_cdm_mv_issues_info",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="cdm/init_cdm_mv_issues_info.sql",
+        autocommit=True
+    )
+
     [init_stg_issues, init_stg_load_settings] >> init_ods_load_settings
     init_ods_load_settings >> [init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions,
                                init_ods_issues] >> init_dds_load_settings
@@ -167,7 +174,7 @@ def init_tables_dag():
                                init_dds_d_priorities, init_dds_d_users] >> join_task
     join_task >> [init_dds_d_components, init_dds_d_versions] >> init_dds_f_issues
     init_dds_f_issues >> [init_dds_f_issue_component_values, init_dds_f_issue_version_values,
-                          init_dds_f_issue_fix_version_values]
+                          init_dds_f_issue_fix_version_values] >> init_cdm_mv_issues_info
 
 
 dag = init_tables_dag()
