@@ -28,7 +28,7 @@ def load_lts_versions():
     conn = dwh_util.get_dwh_connection()
     with conn:
         cur = conn.cursor()
-        cur.execute(f'SELECT DISTINCT object_id {var.STG_LTS_VERSIONS_TABLE_NAME}')
+        cur.execute(f'SELECT DISTINCT object_id FROM {var.STG_LTS_VERSIONS_TABLE_NAME}')
         existing_lts_list = cur.fetchall()
         update_ts = datetime.now()
         for version in lts_versions_list:
