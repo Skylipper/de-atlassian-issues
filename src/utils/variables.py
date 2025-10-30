@@ -7,6 +7,7 @@ AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
 
 # DWH variables
 DWH_CONNECTION_NAME = "ATLAS_DWH_DB"
+VERSIONS_FILE_NAME = 'versions.txt'
 STG_WF_TABLE_NAME = 'stg.load_settings'
 ODS_WF_TABLE_NAME = 'ods.load_settings'
 DDS_WF_TABLE_NAME = 'dds.load_settings'

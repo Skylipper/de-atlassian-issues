@@ -1,0 +1,1985 @@
+11.0 Data Center Onlyhide details -
+11.1
+11.1.1 Data Center Only
+15-окт.-2025
+Release notes
+Download
+11.1.0 Data Center Only
+24-сент.-2025
+Release notes
+Download
+11.0
+11.0.1 Data Center Only
+04-сент.-2025
+Release notes
+Download
+11.0.0 Data Center Only
+13-авг.-2025
+Release notes
+Download
+10.0 Data Center Onlyhide details -
+10.7
+10.7.4 Data Center Only
+14-авг.-2025
+Release notes
+Download
+10.7.3 Data Center Only
+23-июль-2025
+Release notes
+Download
+10.7.2 Data Center Only
+03-июль-2025
+Release notes
+Download
+10.7.1 Data Center Only
+17-июнь-2025
+Release notes
+Download
+10.6
+10.6.1 Data Center Only
+20-май-2025
+Release notes
+Download
+10.6.0 Data Center Only
+23-апр.-2025
+Release notes
+Download
+10.5
+10.5.1 Data Center Only
+03-апр.-2025
+Release notes
+Download
+10.5.0 Data Center Only
+12-март-2025
+Release notes
+Download
+10.4
+10.4.1 Data Center Only
+12-февр.-2025
+Release notes
+Download
+10.4.0 Data Center Only
+22-янв.-2025
+Release notes
+Download
+10.3
+10.3.12 Data Center Only (long term support)?
+02-окт.-2025
+Release notes
+Download
+10.3.11 Data Center Only (long term support)?
+22-сент.-2025
+Release notes
+Download
+10.3.10 Data Center Only (long term support)?
+03-сент.-2025
+Release notes
+Download
+10.3.9 Data Center Only (long term support)?
+06-авг.-2025
+Release notes
+Download
+10.3.8 Data Center Only (long term support)?
+02-июль-2025
+Release notes
+Download
+10.3.7 Data Center Only (long term support)?
+04-июнь-2025
+Release notes
+Download
+10.3.6 Data Center Only (long term support)?
+14-май-2025
+Release notes
+Download
+10.3.5 Data Center Only (long term support)?
+30-март-2025
+Release notes
+Download
+10.3.4 Data Center Only (long term support)?
+05-март-2025
+Release notes
+Download
+10.3.3 Data Center Only (long term support)?
+07-февр.-2025
+Release notes
+Download
+10.3.2 Data Center Only (long term support)?
+08-янв.-2025
+Release notes
+Download
+10.3.1 Data Center Only (long term support)?
+18-дек.-2024
+Release notes
+Download
+10.3.0 Data Center Only (long term support)?
+05-дек.-2024
+Release notes
+Download
+10.2
+10.2.1 Data Center Only
+28-нояб.-2024
+Release notes
+Download
+10.2.0 Data Center Only
+20-нояб.-2024
+Release notes
+Download
+10.1
+10.1.2 Data Center Only
+31-окт.-2024
+Release notes
+Download
+10.1.1 Data Center Only
+09-окт.-2024
+Release notes
+Download
+10.0
+10.0.1 Data Center Only
+09-сент.-2024
+Release notes
+Download
+10.0.0 Data Center Only
+22-авг.-2024
+Release notes
+Download
+9.0hide details -
+9.17
+9.17.5 Data Center Only
+14-нояб.-2024
+Release notes
+Download
+9.17.4 Data Center Only
+09-окт.-2024
+Release notes
+Download
+9.17.3 Data Center Only
+18-сент.-2024
+Release notes
+Download
+9.17.2 Data Center Only
+08-авг.-2024
+Release notes
+Download
+9.17.1 Data Center Only
+18-июль-2024
+Release notes
+Download
+9.17.0 Data Center Only
+26-июнь-2024
+Release notes
+Download
+9.16
+9.16.1 Data Center Only
+12-июнь-2024
+Release notes
+Download
+9.16.0 Data Center Only
+23-май-2024
+Release notes
+Download
+9.15
+9.15.2 Data Center Only
+02-май-2024
+Release notes
+Download
+9.14
+9.14.1 Data Center Only
+12-март-2024
+Release notes
+Download
+9.14.0 Data Center Only
+14-февр.-2024
+Release notes
+Download
+9.13
+9.13.1 Data Center Only
+06-февр.-2024
+Release notes
+Download
+9.13.0 Data Center Only
+22-янв.-2024
+Release notes
+Download
+9.12
+9.12.28 (long term support)?
+01-окт.-2025
+Release notes
+Download
+9.12.27 (long term support)?
+02-сент.-2025
+Release notes
+Download
+9.12.26 (long term support)?
+05-авг.-2025
+Release notes
+Download
+9.12.25 (long term support)?
+01-июль-2025
+Release notes
+Download
+9.12.24 (long term support)?
+03-июнь-2025
+Release notes
+Download
+9.12.23 (long term support)?
+13-май-2025
+Release notes
+Download
+9.12.22 (long term support)?
+09-апр.-2025
+Release notes
+Download
+9.12.19 (long term support)?
+04-март-2025
+Release notes
+Download
+9.12.18 (long term support)?
+04-февр.-2025
+Release notes
+Download
+9.12.17 (long term support)?
+08-янв.-2025
+Release notes
+Download
+9.12.16 (long term support)?
+04-дек.-2024
+Release notes
+Download
+9.12.15 (long term support)?
+06-нояб.-2024
+Release notes
+Download
+9.12.14 (long term support)?
+02-окт.-2024
+Release notes
+Download
+9.12.13 (long term support)?
+04-сент.-2024
+Release notes
+Download
+9.12.12 (long term support)?
+30-июль-2024
+Release notes
+Download
+9.12.11 (long term support)?
+04-июль-2024
+Release notes
+Download
+9.12.10 (long term support)?
+12-июнь-2024
+Release notes
+Download
+9.12.9 (long term support)?
+05-июнь-2024
+Release notes
+Download
+9.12.8 (long term support)?
+08-май-2024
+Release notes
+Download
+9.12.7 (long term support)?
+11-апр.-2024
+Release notes
+Download
+9.12.6 (long term support)?
+03-апр.-2024
+Release notes
+Download
+9.12.5 (long term support)?
+06-март-2024
+Release notes
+Download
+9.12.4 (long term support)?
+12-февр.-2024
+Release notes
+Download
+9.12.3 (long term support)?
+08-февр.-2024
+Release notes
+Download
+9.12.2 (long term support)?
+10-янв.-2024
+Release notes
+Download
+9.12.1 (long term support)?
+12-дек.-2023
+Release notes
+Download
+9.12.0 (long term support)?
+29-нояб.-2023
+Release notes
+Download
+9.11
+9.11.3
+09-нояб.-2023
+Release notes
+Download
+9.11.2
+05-окт.-2023
+Release notes
+Download
+9.11.1
+19-сент.-2023
+Release notes
+Download
+9.11.0
+30-авг.-2023
+Release notes
+Download
+9.10
+9.10.2
+20-сент.-2023
+Release notes
+Download
+9.10.1
+02-авг.-2023
+Release notes
+Download
+9.10.0
+11-июль-2023
+Release notes
+Download
+9.9
+9.9.2
+30-авг.-2023
+Release notes
+Download
+9.9.1
+29-июнь-2023
+Release notes
+Download
+9.9.0
+02-июнь-2023
+Release notes
+Download
+9.8
+9.8.2
+30-авг.-2023
+Release notes
+Download
+9.8.1
+12-май-2023
+Release notes
+Download
+9.8.0
+25-апр.-2023
+Release notes
+Download
+9.7
+9.7.2
+31-авг.-2023
+Release notes
+Download
+9.7.1
+13-апр.-2023
+Release notes
+Download
+9.7.0
+20-март-2023
+Release notes
+Download
+9.6
+9.6.0
+24-янв.-2023
+Release notes
+Download
+9.5
+9.5.1
+19-янв.-2023
+Release notes
+Download
+9.5.0
+06-дек.-2022
+Release notes
+Download
+9.4
+9.4.30 (long term support)?
+07-янв.-2025
+Release notes
+Download
+9.4.29 (long term support)?
+03-дек.-2024
+Release notes
+Download
+9.4.28 (long term support)?
+05-нояб.-2024
+Release notes
+Download
+9.4.27 (long term support)?
+01-окт.-2024
+Release notes
+Download
+9.4.26 (long term support)?
+03-сент.-2024
+Release notes
+Download
+9.4.25 (long term support)?
+30-июль-2024
+Release notes
+Download
+9.4.24 (long term support)?
+04-июль-2024
+Release notes
+Download
+9.4.23 (long term support)?
+12-июнь-2024
+Release notes
+Download
+9.4.22 (long term support)?
+04-июнь-2024
+Release notes
+Download
+9.4.21 (long term support)?
+07-май-2024
+Release notes
+Download
+9.4.20 (long term support)?
+11-апр.-2024
+Release notes
+Download
+9.4.19 (long term support)?
+02-апр.-2024
+Release notes
+Download
+9.4.18 (long term support)?
+05-март-2024
+Release notes
+Download
+9.4.17 (long term support)?
+12-февр.-2024
+Release notes
+Download
+9.4.16 (long term support)?
+07-февр.-2024
+Release notes
+Download
+9.4.15 (long term support)?
+03-янв.-2024
+Release notes
+Download
+9.4.14 (long term support)?
+05-дек.-2023
+Release notes
+Download
+9.4.12 (long term support)?
+08-нояб.-2023
+Release notes
+Download
+9.4.11 (long term support)?
+05-окт.-2023
+Release notes
+Download
+9.4.10 (long term support)?
+06-сент.-2023
+Release notes
+Download
+9.4.9 (long term support)?
+02-авг.-2023
+Release notes
+Download
+9.4.8 (long term support)?
+27-июнь-2023
+Release notes
+Download
+9.4.7 (long term support)?
+07-июнь-2023
+Release notes
+Download
+9.4.6 (long term support)?
+09-май-2023
+Release notes
+Download
+9.4.5 (long term support)?
+11-апр.-2023
+Release notes
+Download
+9.4.4 (long term support)?
+16-март-2023
+Release notes
+Download
+9.4.3 (long term support)?
+14-февр.-2023
+Release notes
+Download
+9.4.2 (long term support)?
+19-янв.-2023
+Release notes
+Download
+9.4.1 (long term support)?
+14-дек.-2022
+Release notes
+Download
+9.4.0 (long term support)?
+15-нояб.-2022
+Release notes
+Download
+9.3
+9.3.3
+19-янв.-2023
+Release notes
+Download
+9.3.2
+16-дек.-2022
+Release notes
+Download
+9.3.1
+25-окт.-2022
+Release notes
+Download
+9.3.0
+29-сент.-2022
+Release notes
+Download
+9.2
+9.2.1
+22-дек.-2022
+Release notes
+Download
+9.2.0
+25-авг.-2022
+Release notes
+Download
+9.1
+9.1.1
+23-авг.-2022
+Release notes
+Download
+9.1.0
+21-июль-2022
+Release notes
+Download
+9.0
+9.0.0
+21-июнь-2022
+Release notes
+Download
+8.0hide details -
+8.22
+8.22.6
+20-июль-2022
+Release notes
+Download
+8.22.4
+27-июнь-2022
+Release notes
+Download
+8.22.3
+25-май-2022
+Release notes
+Download
+8.22.2
+20-апр.-2022
+Release notes
+Download
+8.22.1
+16-март-2022
+Release notes
+Download
+8.22.0
+16-февр.-2022
+Release notes
+Download
+8.21
+8.21.1
+27-янв.-2022
+Release notes
+Download
+8.21.0
+09-дек.-2021
+Release notes
+Download
+8.20
+8.20.30 (long term support)?
+02-янв.-2024
+Release notes
+Download
+8.20.29 (long term support)?
+07-дек.-2023
+Release notes
+Download
+8.20.28 (long term support)?
+07-нояб.-2023
+Release notes
+Download
+8.20.27 (long term support)?
+04-окт.-2023
+Release notes
+Download
+8.20.26 (long term support)?
+08-сент.-2023
+Release notes
+Download
+8.20.25 (long term support)?
+02-авг.-2023
+Release notes
+Download
+8.20.24 (long term support)?
+27-июнь-2023
+Release notes
+Download
+8.20.23 (long term support)?
+06-июнь-2023
+Release notes
+Download
+8.20.22 (long term support)?
+08-май-2023
+Release notes
+Download
+8.20.21 (long term support)?
+11-апр.-2023
+Release notes
+Download
+8.20.20 (long term support)?
+15-март-2023
+Release notes
+Download
+8.20.19 (long term support)?
+28-февр.-2023
+Release notes
+Download
+8.20.17 (long term support)?
+18-янв.-2023
+Release notes
+Download
+8.20.16 (long term support)?
+14-дек.-2022
+Release notes
+Download
+8.20.15 (long term support)?
+15-нояб.-2022
+Release notes
+Download
+8.20.14 (long term support)?
+24-окт.-2022
+Release notes
+Download
+8.20.13 (long term support)?
+21-сент.-2022
+Release notes
+Download
+8.20.12 (long term support)?
+24-авг.-2022
+Release notes
+Download
+8.20.11 (long term support)?
+19-июль-2022
+Release notes
+Download
+8.20.10 (long term support)?
+23-июнь-2022
+Release notes
+Download
+8.20.9 (long term support)?
+25-май-2022
+Release notes
+Download
+8.20.8 (long term support)?
+20-апр.-2022
+Release notes
+Download
+8.20.7 (long term support)?
+16-март-2022
+Release notes
+Download
+8.20.6 (long term support)?
+15-февр.-2022
+Release notes
+Download
+8.20.5 (long term support)?
+26-янв.-2022
+Release notes
+Download
+8.20.4 (long term support)?
+18-янв.-2022
+Release notes
+Download
+8.20.3 (long term support)?
+16-дек.-2021
+Release notes
+Download
+8.20.2 (long term support)?
+17-нояб.-2021
+Release notes
+Download
+8.20.1 (long term support)?
+01-нояб.-2021
+Release notes
+Download
+8.20.0 (long term support)?
+19-окт.-2021
+Release notes
+Download
+8.19
+8.19.1
+15-сент.-2021
+Release notes
+Download
+8.19.0
+26-авг.-2021
+Release notes
+Download
+8.18
+8.18.2
+18-авг.-2021
+Release notes
+Download
+8.18.1
+22-июль-2021
+Release notes
+Download
+8.17
+8.17.1
+15-июнь-2021
+Release notes
+Download
+8.17.0
+18-май-2021
+Release notes
+Download
+8.16
+8.16.2
+02-июнь-2021
+Release notes
+Download
+8.16.1
+19-апр.-2021
+Release notes
+Download
+8.16.0
+23-март-2021
+Release notes
+Download
+8.15
+8.15.1
+22-март-2021
+Release notes
+Download
+8.15.0
+22-янв.-2021
+Release notes
+Download
+8.14
+8.14.1
+14-янв.-2021
+Release notes
+Download
+8.14.0
+23-нояб.-2020
+Release notes
+Download
+8.13
+8.13.27 (long term support)?
+24-окт.-2022
+Release notes
+Download
+8.13.26 (long term support)?
+20-сент.-2022
+Release notes
+Download
+8.13.25 (long term support)?
+25-авг.-2022
+Release notes
+Download
+8.13.24 (long term support)?
+28-июль-2022
+Release notes
+Download
+8.13.22 (long term support)?
+23-июнь-2022
+Release notes
+Download
+8.13.21 (long term support)?
+25-май-2022
+Release notes
+Download
+8.13.20 (long term support)?
+20-апр.-2022
+Release notes
+Download
+8.13.19 (long term support)?
+16-март-2022
+Release notes
+Download
+8.13.18 (long term support)?
+15-февр.-2022
+Release notes
+Download
+8.13.17 (long term support)?
+26-янв.-2022
+Release notes
+Download
+8.13.16 (long term support)?
+18-янв.-2022
+Release notes
+Download
+8.13.15 (long term support)?
+16-дек.-2021
+Release notes
+Download
+8.13.14 (long term support)?
+17-нояб.-2021
+Release notes
+Download
+8.13.13 (long term support)?
+28-окт.-2021
+Release notes
+Download
+8.13.12 (long term support)?
+19-окт.-2021
+Release notes
+Download
+8.13.11 (long term support)?
+14-сент.-2021
+Release notes
+Download
+8.13.10 (long term support)?
+17-авг.-2021
+Release notes
+Download
+8.13.9 (long term support)?
+15-июль-2021
+Release notes
+Download
+8.13.8 (long term support)?
+15-июнь-2021
+Release notes
+Download
+8.13.7 (long term support)?
+18-май-2021
+Release notes
+Download
+8.13.6 (long term support)?
+19-апр.-2021
+Release notes
+Download
+8.13.5 (long term support)?
+23-март-2021
+Release notes
+Download
+8.13.4 (long term support)?
+15-февр.-2021
+Release notes
+Download
+8.13.3 (long term support)?
+14-янв.-2021
+Release notes
+Download
+8.13.2 (long term support)?
+01-дек.-2020
+Release notes
+Download
+8.13.1 (long term support)?
+02-нояб.-2020
+Release notes
+Download
+8.13.0 (long term support)?
+07-окт.-2020
+Release notes
+Download
+8.12
+8.12.3
+07-окт.-2020
+Release notes
+Download
+8.12.2
+21-сент.-2020
+Release notes
+Download
+8.12.1
+07-сент.-2020
+Release notes
+Download
+8.12.0
+26-авг.-2020
+Release notes
+Download
+8.11
+8.11.1
+17-авг.-2020
+Release notes
+Download
+8.11.0
+15-июль-2020
+Release notes
+Download
+8.10
+8.10.1
+20-июль-2020
+Release notes
+Download
+8.10.0
+23-июнь-2020
+Release notes
+Download
+8.9
+8.9.1
+16-июнь-2020
+Release notes
+Download
+8.9.0
+19-май-2020
+Release notes
+Download
+8.8
+8.8.1
+22-апр.-2020
+Release notes
+Download
+8.8.0
+19-март-2020
+Release notes
+Download
+8.7
+8.7.1
+10-февр.-2020
+Release notes
+Download
+8.7.0
+03-февр.-2020
+Release notes
+Download
+8.6
+8.6.1
+09-янв.-2020
+Release notes
+Download
+8.6.0
+17-дек.-2019
+Release notes
+Download
+8.5
+8.5.19 (long term support)?
+14-сент.-2021
+Release notes
+Download
+8.5.18 (long term support)?
+17-авг.-2021
+Release notes
+Download
+8.5.17 (long term support)?
+13-июль-2021
+Release notes
+Download
+8.5.16 (long term support)?
+15-июнь-2021
+Release notes
+Download
+8.5.15 (long term support)?
+18-май-2021
+Release notes
+Download
+8.5.14 (long term support)?
+19-апр.-2021
+Release notes
+Download
+8.5.13 (long term support)?
+23-март-2021
+Release notes
+Download
+8.5.12 (long term support)?
+15-февр.-2021
+Release notes
+Download
+8.5.11 (long term support)?
+14-янв.-2021
+Release notes
+Download
+8.5.10 (long term support)?
+01-дек.-2020
+Release notes
+Download
+8.5.9 (long term support)?
+12-окт.-2020
+Release notes
+Download
+8.5.8 (long term support)?
+07-сент.-2020
+Release notes
+Download
+8.5.7 (long term support)?
+10-авг.-2020
+Release notes
+Download
+8.5.6 (long term support)?
+20-июль-2020
+Release notes
+Download
+8.5.5 (long term support)?
+08-июнь-2020
+Release notes
+Download
+8.5.4 (long term support)?
+19-март-2020
+Release notes
+Download
+8.5.3 (long term support)?
+09-янв.-2020
+Release notes
+Download
+8.5.2 (long term support)?
+16-дек.-2019
+Release notes
+Download
+8.5.1 (long term support)?
+04-нояб.-2019
+Release notes
+Download
+8.5.0 (long term support)?
+21-окт.-2019
+Release notes
+Download
+8.4
+8.4.3
+08-нояб.-2019
+Release notes
+Download
+8.4.2
+30-сент.-2019
+Release notes
+Download
+8.4.1
+16-сент.-2019
+Release notes
+Download
+8.4.0
+09-сент.-2019
+Release notes
+Download
+8.3
+8.3.5
+05-нояб.-2019
+Release notes
+Download
+8.3.4
+16-сент.-2019
+Release notes
+Download
+8.3.3
+28-авг.-2019
+Release notes
+Download
+8.3.2
+13-авг.-2019
+Release notes
+Download
+8.3.1
+01-авг.-2019
+Release notes
+Download
+8.3.0
+22-июль-2019
+Release notes
+Download
+8.2
+8.2.6
+05-нояб.-2019
+Release notes
+Download
+8.2.5
+16-сент.-2019
+Release notes
+Download
+8.2.4
+17-июль-2019
+Release notes
+Download
+8.2.3
+09-июль-2019
+Release notes
+Download
+8.2.2
+12-июнь-2019
+Release notes
+Download
+8.2.1
+27-май-2019
+Release notes
+Download
+8.2.0
+20-май-2019
+Release notes
+Download
+8.1
+8.1.3
+16-сент.-2019
+Release notes
+Download
+8.1.2
+09-июль-2019
+Release notes
+Download
+8.1.1
+17-май-2019
+Release notes
+Download
+8.1.0
+04-апр.-2019
+Release notes
+Download
+8.0
+8.0.3
+09-июль-2019
+Release notes
+Download
+8.0.2
+06-март-2019
+Release notes
+Download
+8.0.0
+09-февр.-2019
+Release notes
+Download
+7.0hide details -
+7.13
+7.13.18 (long term support)?
+12-окт.-2020
+Release notes
+Download
+7.13.17 (long term support)?
+05-сент.-2020
+Release notes
+Download
+7.13.16 (long term support)?
+10-авг.-2020
+Release notes
+Download
+7.13.15 (long term support)?
+20-июль-2020
+Release notes
+Download
+7.13.14 (long term support)?
+05-июнь-2020
+Release notes
+Download
+7.13.13 (long term support)?
+27-февр.-2020
+Release notes
+Download
+7.13.12 (long term support)?
+20-янв.-2020
+Release notes
+Download
+7.13.11 (long term support)?
+05-нояб.-2019
+Release notes
+Download
+7.13.9 (long term support)?
+14-окт.-2019
+Release notes
+Download
+7.13.8 (long term support)?
+16-сент.-2019
+Release notes
+Download
+7.13.6 (long term support)?
+26-авг.-2019
+Release notes
+Download
+7.13.5 (long term support)?
+09-июль-2019
+Release notes
+Download
+7.13.4 (long term support)?
+17-июнь-2019
+Release notes
+Download
+7.13.3 (long term support)?
+18-апр.-2019
+Release notes
+Download
+7.13.2 (long term support)?
+21-март-2019
+Release notes
+Download
+7.13.1 (long term support)?
+29-янв.-2019
+Release notes
+Download
+7.13.0 (long term support)?
+28-нояб.-2018
+Release notes
+Download
+7.12
+7.12.3
+12-окт.-2018
+Release notes
+Download
+7.12.1
+05-сент.-2018
+Release notes
+Download
+7.12.0
+27-авг.-2018
+Release notes
+Download
+7.11
+7.11.2
+08-авг.-2018
+Release notes
+Download
+7.11.1
+25-июль-2018
+Release notes
+Download
+7.11.0
+11-июль-2018
+Release notes
+Download
+7.10
+7.10.2
+27-июнь-2018
+Release notes
+Download
+7.10.1
+13-июнь-2018
+Release notes
+Download
+7.10.0
+28-май-2018
+Release notes
+Download
+7.9
+7.9.2
+08-май-2018
+Release notes
+Download
+7.9.0
+08-апр.-2018
+Release notes
+Download
+7.8
+7.8.4
+08-май-2018
+Release notes
+Download
+7.8.2
+02-апр.-2018
+Release notes
+Download
+7.8.1
+18-март-2018
+Release notes
+Download
+7.8.0
+19-февр.-2018
+Release notes
+Download
+7.7
+7.7.4
+09-май-2018
+Release notes
+Download
+7.7.2
+18-февр.-2018
+Release notes
+Download
+7.7.1
+30-янв.-2018
+Release notes
+Download
+7.7.0
+10-янв.-2018
+Release notes
+Download
+7.6
+7.6.17 (long term support)?
+04-нояб.-2019
+Release notes
+Download
+7.6.16 (long term support)?
+16-сент.-2019
+Release notes
+Download
+7.6.15 (long term support)?
+09-сент.-2019
+Release notes
+Download
+7.6.14 (long term support)?
+09-июль-2019
+Release notes
+Download
+7.6.13 (long term support)?
+18-апр.-2019
+Release notes
+Download
+7.6.12 (long term support)?
+06-март-2019
+Release notes
+Download
+7.6.11 (long term support)?
+24-янв.-2019
+Release notes
+Download
+7.6.10 (long term support)?
+27-нояб.-2018
+Release notes
+Download
+7.6.9 (long term support)?
+04-окт.-2018
+Release notes
+Download
+7.6.8 (long term support)?
+23-авг.-2018
+Release notes
+Download
+7.6.7 (long term support)?
+12-июль-2018
+Release notes
+Download
+7.6.6 (long term support)?
+28-май-2018
+Release notes
+Download
+7.6.4 (long term support)?
+05-март-2018
+Release notes
+Download
+7.6.3
+08-янв.-2018
+Release notes
+Download
+7.6.2
+19-дек.-2017
+Release notes
+Download
+7.6.1
+05-дек.-2017
+Release notes
+Download
+7.6.0
+15-нояб.-2017
+Release notes
+Download
+7.5
+7.5.4
+16-янв.-2018
+Release notes
+Download
+7.5.3
+14-нояб.-2017
+Release notes
+Download
+7.5.2
+30-окт.-2017
+Release notes
+Download
+7.5.1
+15-окт.-2017
+Release notes
+Download
+7.5.0
+05-сент.-2017
+Release notes
+Download
+7.4
+7.4.6
+15-янв.-2018
+Release notes
+Download
+7.4.5
+24-окт.-2017
+Release notes
+Download
+7.4.4
+03-сент.-2017
+Release notes
+Download
+7.4.3
+21-авг.-2017
+Release notes
+Download
+7.4.2
+30-июль-2017
+Release notes
+Download
+7.4.1
+10-июль-2017
+Release notes
+Download
+7.4.0
+28-июнь-2017
+Release notes
+Download
+7.3
+7.3.9
+10-янв.-2018
+Release notes
+Download
+7.3.8
+18-июнь-2017
+Release notes
+Download
+7.3.7
+04-июнь-2017
+Release notes
+Download
+7.3.6
+26-апр.-2017
+Release notes
+Download
+7.3.5
+18-апр.-2017
+Release notes
+Download
+7.3.4
+03-апр.-2017
+Release notes
+Download
+7.3.3
+13-март-2017
+Release notes
+Download
+7.3.2
+28-февр.-2017
+Release notes
+Download
+7.3.1
+05-февр.-2017
+Release notes
+Download
+7.3.0
+02-янв.-2017
+Release notes
+Download
+7.2
+7.2.15
+06-июнь-2018
+Release notes
+Download
+7.2.14
+16-май-2018
+Release notes
+Download
+7.2.13
+06-март-2018
+Release notes
+Download
+7.2.12
+03-дек.-2017
+Release notes
+Download
+7.2.11
+25-сент.-2017
+Release notes
+Download
+7.2.10
+18-июль-2017
+Release notes
+Download
+7.2.9
+24-май-2017
+Release notes
+Download
+7.2.8
+16-март-2017
+Release notes
+Download
+7.2.7
+29-дек.-2016
+Release notes
+Download
+7.2.6
+06-дек.-2016
+Release notes
+Download
+7.2.4
+30-окт.-2016
+Release notes
+Download
+7.2.3
+12-окт.-2016
+Release notes
+Download
+7.2.2
+26-сент.-2016
+Release notes
+Download
+7.2.1
+05-сент.-2016
+Release notes
+Download
+7.2.0
+24-авг.-2016
+Release notes
+Download
+7.1
+7.1.10
+14-сент.-2016
+Release notes
+Download
+7.1.9
+04-июль-2016
+Release notes
+Download
+7.1.8
+15-июнь-2016
+Release notes
+Download
+7.1.7
+18-май-2016
+Release notes
+Download
+7.1.6
+04-май-2016
+Release notes
+Download
+7.1.4
+06-апр.-2016
+Release notes
+Download
+7.1.2
+16-март-2016
+Release notes
+Download
+7.1.1
+02-март-2016
+Release notes
+Download
+7.1.0
+10-февр.-2016
+Release notes
+Download
+7.0
+7.0.11
+13-сент.-2016
+Release notes
+Download
+7.0.10
+28-янв.-2016
+Release notes
+Download
+7.0.5
+18-дек.-2015
+Release notes
+Download
+7.0.4
+07-дек.-2015
+Release notes
+Download
+7.0.2
+18-нояб.-2015
+Release notes
+Download
+7.0.0
+01-окт.-2015
+Release notes
+Download
+6.0hide details -
+6.4
+6.4.13 (long term support)?
+03-март-2016
+Release notes
+Download
+6.4.12 (long term support)?
+25-сент.-2015
+Release notes
+Download
+6.4.11 (long term support)?
+25-авг.-2015
+Release notes
+Download
+6.4.10 (long term support)?
+12-авг.-2015
+Release notes
+Download
+6.4.9 (long term support)?
+29-июль-2015
+Release notes
+Download
+6.4.8 (long term support)?
+16-июль-2015
+Release notes
+Download
+6.4.7 (long term support)?
+23-июнь-2015
+Release notes
+Download
+6.4.6 (long term support)?
+09-июнь-2015
+Release notes
+Download
+6.4.5 (long term support)?
+26-май-2015
+Release notes
+Download
+6.4.4 (long term support)?
+12-май-2015
+Release notes
+Download
+6.4.3 (long term support)?
+28-апр.-2015
+Release notes
+Download
+6.4.2 (long term support)?
+16-апр.-2015
+Release notes
+Download
+6.4.1 (long term support)?
+31-март-2015
+Release notes
+Download
+6.4 (long term support)?
+16-март-2015
+Release notes
+Download
+6.3
+6.3.15 (long term support)?
+03-февр.-2015
+Release notes
+Download
+6.3.14 (long term support)?
+20-янв.-2015
+Release notes
+Download
+6.3.13 (long term support)?
+07-янв.-2015
+Release notes
+Download
+6.3.12 (long term support)?
+09-дек.-2014
+Release notes
+Download
+6.3.11 (long term support)?
+25-нояб.-2014
+Release notes
+Download
+6.3.10 (long term support)?
+11-нояб.-2014
+Release notes
+Download
+6.3.9 (long term support)?
+28-окт.-2014
+Release notes
+Download
+6.3.8 (long term support)?
+13-окт.-2014
+Release notes
+Download
+6.3.7 (long term support)?
+30-сент.-2014
+Release notes
+Download
+6.3.6 (long term support)?
+16-сент.-2014
+Release notes
+Download
+6.3.5 (long term support)?
+09-сент.-2014
+Release notes
+Download
+6.3.4 (long term support)?
+19-авг.-2014
+Release notes
+Download
+6.3.3 (long term support)?
+11-авг.-2014
+Release notes
+Download
+6.3.1 (long term support)?
+15-июль-2014
+Release notes
+Download
+6.3 (long term support)?
+08-июль-2014
+Release notes
+Download
+6.2
+6.2.7 (long term support)?
+11-июнь-2014
+Release notes
+Download
+6.2.6 (long term support)?
+27-май-2014
+Release notes
+Download
+6.2.5 (long term support)?
+13-май-2014
+Release notes
+Download
+6.2.4 (long term support)?
+02-май-2014
+Release notes
+Download
+6.2.3 (long term support)?
+15-апр.-2014
+Release notes
+Download
+6.2.2 (long term support)?
+01-апр.-2014
+Release notes
+Download
+6.2.1 (long term support)?
+17-март-2014
+Release notes
+Download
+6.2 (long term support)?
+24-февр.-2014
+Release notes
+Download
+6.1
+6.1.9 (long term support)?
+29-сент.-2014
+Release notes
+Download
+6.1.8 (long term support)?
+21-май-2014
+Release notes
+Download
+6.1.7 (long term support)?
+28-янв.-2014
+Release notes
+Download
+6.1.6 (long term support)?
+14-янв.-2014
+Release notes
+Download
+6.1.5 (long term support)?
+10-дек.-2013
+Release notes
+Download
+6.1.4 (long term support)?
+26-нояб.-2013
+Release notes
+Download
+6.1.3 (long term support)?
+12-нояб.-2013
+Release notes
+Download
+6.1.2 (long term support)?
+29-окт.-2013
+Release notes
+Download
+6.1.1 (long term support)?
+15-окт.-2013
+Release notes
+Download
+6.1 (long term support)?
+23-сент.-2013
+Release notes
+Download
+6.0
+6.0.8 (long term support)?
+03-сент.-2013
+Release notes
+Download
+6.0.7 (long term support)?
+20-авг.-2013
+Release notes
+Download
+6.0.6 (long term support)?
+06-авг.-2013
+Release notes
+Download
+6.0.5 (long term support)?
+23-июль-2013
+Release notes
+Download
+6.0.4 (long term support)?
+09-июль-2013
+Release notes
+Download
+6.0.3 (long term support)?
+25-июнь-2013
+Release notes
+Download
+6.0.2 (long term support)?
+12-июнь-2013
+Release notes
+Download
+6.0.1 (long term support)?
+27-май-2013
+Release notes
+Download
+6.0 (long term support)?
+21-май-2013
+Release notes
+Download
+5.0hide details -
+5.2
+5.2.11 (long term support)?
+18-апр.-2013
+Release notes
+Download
+5.2.10 (long term support)?
+03-апр.-2013
+Release notes
+Download
+5.2.9 (long term support)?
+20-март-2013
+Release notes
+Download
+5.2.8 (long term support)?
+08-март-2013
+Release notes
+Download
+5.2.7 (long term support)?
+21-февр.-2013
+Release notes
+Download
+5.2.6 (long term support)?
+06-февр.-2013
+Release notes
+Download
+5.2.5 (long term support)?
+20-янв.-2013
+Release notes
+Download
+5.2.4.1 (long term support)?
+10-янв.-2013
+Release notes
+Download
+5.2.4 (long term support)?
+01-янв.-2013
+Release notes
+Download
+5.2.3 (long term support)?
+23-дек.-2012
+Release notes
+Download
+5.2.2 (long term support)?
+10-дек.-2012
+Release notes
+Download
+5.2.1 (long term support)?
+27-нояб.-2012
+Release notes
+Download
+5.2 (long term support)?
+11-нояб.-2012
+Release notes
+Download
+5.1
+5.1.8 (long term support)?
+31-окт.-2012
+Release notes
+Download
+5.1.7 (long term support)?
+15-окт.-2012
+Release notes
+Download
+5.1.6 (long term support)?
+01-окт.-2012
+Release notes
+Download
+5.1.5 (long term support)?
+17-сент.-2012
+Release notes
+Download
+5.1.4 (long term support)?
+03-сент.-2012
+Release notes
+Download
+5.1.3 (long term support)?
+20-авг.-2012
+Release notes
+Download
+5.1.2 (long term support)?
+07-авг.-2012
+Release notes
+Download
+5.1.1 (long term support)?
+23-июль-2012
+Release notes
+Download
+5.1 (long term support)?
+09-июль-2012
+Release notes
+Download
+5.0
+5.0.7 (long term support)?
+01-июль-2012
+Release notes
+Download
+5.0.6 (long term support)?
+03-июнь-2012
+Release notes
+Download
+5.0.5 (long term support)?
+20-май-2012
+Release notes
+Download
+5.0.4 (long term support)?
+06-май-2012
+Release notes
+Download
+5.0.3 (long term support)?
+23-апр.-2012
+Release notes
+Download
+5.0.2 (long term support)?
+02-апр.-2012
+Release notes
+Download
+5.0.1 (long term support)?
+18-март-2012
+Release notes
+Download
+5.0 (long term support)?
+23-февр.-2012
+Release notes
+Download
+4.0hide details -
+4.4
+4.4.5 (long term support)?
+22-февр.-2012
+Release notes
+Download
+4.4.4 (long term support)?
+12-дек.-2011
+Release notes
+Download
+4.4.3 (long term support)?
+19-окт.-2011
+Release notes
+Download
+4.4.1 (long term support)?
+12-сент.-2011
+Release notes
+Download
+4.4 (long term support)?
+02-авг.-2011
+Release notes
+Download
+4.3
+4.3.4 (long term support)?
+27-май-2011
+Release notes
+Download
+4.3.3 (long term support)?
+29-апр.-2011
+Release notes
+Download
+4.3.2 (long term support)?
+11-апр.-2011
+Release notes
+Download
+4.3.1 (long term support)?
+01-апр.-2011
+Release notes
+Download
+4.3 (long term support)?
+16-март-2011
+Release notes
+Download
+4.2
+4.2.4 (long term support)?
+08-февр.-2011
+Release notes
+Download
+4.2.3 (long term support)?
+31-янв.-2011
+Release notes
+Download
+4.2.2 (long term support)?
+23-дек.-2010
+Release notes
+Download
+4.1
+4.1.2 (long term support)?
+18-июнь-2010
+Release notes
+Download
+4.1.1 (long term support)?
+21-апр.-2010
+Release notes
+Download

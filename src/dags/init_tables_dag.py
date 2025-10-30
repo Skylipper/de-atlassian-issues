@@ -28,6 +28,13 @@ def init_tables_dag():
         autocommit=True
     )
 
+    init_stg_lts_versions = SQLExecuteQueryOperator(
+        task_id="stg_init_lts_versions",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="stg/init_lts_versions.sql",
+        autocommit=True
+    )
+
     init_stg_load_settings = SQLExecuteQueryOperator(
         task_id="stg_init_load_settings",
         conn_id=var.DWH_CONNECTION_NAME,
@@ -167,7 +174,7 @@ def init_tables_dag():
         autocommit=True
     )
 
-    [init_stg_issues, init_stg_load_settings] >> init_ods_load_settings
+    [init_stg_issues, init_stg_lts_versions, init_stg_load_settings] >> init_ods_load_settings
     init_ods_load_settings >> [init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions,
                                init_ods_issues] >> init_dds_load_settings
     init_dds_load_settings >> [init_dds_d_projects, init_dds_d_statuses, init_dds_d_resolutions, init_dds_d_issuetypes,
