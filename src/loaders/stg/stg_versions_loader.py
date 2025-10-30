@@ -3,7 +3,7 @@ from src.utils import dwh_util
 from datetime import datetime
 
 versions_file_path = f'{var.AIRFLOW_DAGS_DIR}/src/raw/{var.VERSIONS_FILE_NAME}'
-versions_file_path = """C:\\Users\skyli\Documents\Практикум курс\de-atlassian-issues\src\\raw\\versions.txt"""
+# versions_file_path = """C:\\Users\skyli\Documents\Практикум курс\de-atlassian-issues\src\\raw\\versions.txt"""
 text_to_search = 'long term support'
 delimiter = ' ('
 
