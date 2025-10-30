@@ -23,3 +23,7 @@ def load_issue_fix_versions():
 def load_issues():
     table = var.ODS_ISSUES_TABLE_NAME
     load_data_for_table(schema_name, table, stat_table, 'updated')
+
+def load_lts_versions():
+    table = var.ODS_LTS_VERSIONS_TABLE_NAME
+    load_data_for_table(schema_name, table, stat_table, 'updated')

@@ -70,6 +70,13 @@ def init_tables_dag():
         autocommit=True
     )
 
+    init_ods_lts_versions = SQLExecuteQueryOperator(
+        task_id="ods_init_lts_versions",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="ods/init_lts_versions.sql",
+        autocommit=True
+    )
+
     init_ods_issues = SQLExecuteQueryOperator(
         task_id="ods_init_issues",
         conn_id=var.DWH_CONNECTION_NAME,
@@ -176,7 +183,7 @@ def init_tables_dag():
 
     [init_stg_issues, init_stg_lts_versions, init_stg_load_settings] >> init_ods_load_settings
     init_ods_load_settings >> [init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions,
-                               init_ods_issues] >> init_dds_load_settings
+                               init_ods_lts_versions,init_ods_issues] >> init_dds_load_settings
     init_dds_load_settings >> [init_dds_d_projects, init_dds_d_statuses, init_dds_d_resolutions, init_dds_d_issuetypes,
                                init_dds_d_priorities, init_dds_d_users] >> join_task
     join_task >> [init_dds_d_components, init_dds_d_versions] >> init_dds_f_issues
