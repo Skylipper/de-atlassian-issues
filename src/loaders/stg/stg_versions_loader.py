@@ -39,7 +39,7 @@ def load_lts_versions():
             object_value = version
             print(object_id)
             print(object_value)
-            if object_id not in existing_lts_list | len(existing_lts_list) == 0:
+            if object_id not in existing_lts_list or len(existing_lts_list) == 0:
                 dwh_util.insert_stg_data(cur, var.STG_LTS_VERSIONS_TABLE_NAME, object_id, object_value, update_ts.isoformat())
                 existing_lts_list.append(object_id)
         dwh_util.update_last_loaded_ts(cur, var.STG_WF_TABLE_NAME, var.STG_LTS_VERSIONS_TABLE_NAME, update_ts)
