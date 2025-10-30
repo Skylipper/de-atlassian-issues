@@ -29,7 +29,7 @@ def load_lts_versions(log):
     with conn:
         cur = conn.cursor()
         cur.execute(f'SELECT DISTINCT object_id FROM {var.STG_LTS_VERSIONS_TABLE_NAME}')
-        existing_lts_list = cur.fetchall().tolist()
+        existing_lts_list = cur.fetchall()
         log.info(existing_lts_list)
         update_ts = datetime.now()
         for version in lts_versions_list:
