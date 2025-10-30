@@ -3,10 +3,6 @@ WITH last_updated as (SELECT COALESCE(
                                       FROM ods.load_settings
                                       WHERE workflow_key = 'dds.d_versions'),
                                      '2010-01-01'::timestamp) as last_loaded_ts)
-   , lts_major_versions
-    as (select CONCAT(major_version, '.') major_version_template
-        from unnest(array ['10.3', '9.12','9.4','8.20','8.13','8.5','7.13','7.6','6.4','6.3','6.2','6.1','6.0']) x(major_version))
-
    , affect_versions as (SELECT DISTINCT version_id
                                        , project_id
                                        , iv.version_name
