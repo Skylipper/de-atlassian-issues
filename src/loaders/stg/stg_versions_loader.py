@@ -34,11 +34,9 @@ def load_lts_versions():
         update_ts = datetime.now()
         for version in lts_versions_list:
             version_number = version.split(delimiter, 1)[0]
-            print(version_number)
             object_id = version_number
             object_value = version
             print(object_id)
-            print(object_value)
             if object_id not in existing_lts_list or len(existing_lts_list) == 0:
                 dwh_util.insert_stg_data(cur, var.STG_LTS_VERSIONS_TABLE_NAME, object_id, object_value, update_ts.isoformat())
                 existing_lts_list.append(object_id)
