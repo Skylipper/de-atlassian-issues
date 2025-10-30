@@ -22,9 +22,9 @@ def get_lts_list():
 
     return lts_versions_list
 
-lts_versions_list = get_lts_list()
 
 def load_lts_versions():
+    lts_versions_list = get_lts_list()
     conn = dwh_util.get_dwh_connection()
     with conn:
         cur = conn.cursor()
@@ -34,6 +34,7 @@ def load_lts_versions():
         update_ts = datetime.now()
         for version in lts_versions_list:
             version_number = version.split(delimiter, 1)[0]
+            print(version_number)
             object_id = version_number
             object_value = version
             print(object_id)
