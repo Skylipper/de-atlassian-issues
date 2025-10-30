@@ -23,21 +23,21 @@ def get_lts_list():
     return lts_versions_list
 
 
-def load_lts_versions():
+def load_lts_versions(log):
     lts_versions_list = get_lts_list()
     conn = dwh_util.get_dwh_connection()
     with conn:
         cur = conn.cursor()
         cur.execute(f'SELECT DISTINCT object_id FROM {var.STG_LTS_VERSIONS_TABLE_NAME}')
-        existing_lts_list = cur.fetchall()
-        print(existing_lts_list)
+        existing_lts_list = cur.fetchall().tolist()
+        log.info(existing_lts_list)
         update_ts = datetime.now()
         for version in lts_versions_list:
             version_number = version.split(delimiter, 1)[0]
             object_id = version_number
             object_value = version
-            print(object_id)
             if object_id not in existing_lts_list or len(existing_lts_list) == 0:
+                log.info(f'Creating new LTS version: {object_id}')
                 dwh_util.insert_stg_data(cur, var.STG_LTS_VERSIONS_TABLE_NAME, object_id, object_value, update_ts.isoformat())
                 existing_lts_list.append(object_id)
         dwh_util.update_last_loaded_ts(cur, var.STG_WF_TABLE_NAME, var.STG_LTS_VERSIONS_TABLE_NAME, update_ts)
