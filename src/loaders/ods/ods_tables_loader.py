@@ -26,4 +26,4 @@ def load_issues():
 
 def load_lts_versions():
     table = var.ODS_LTS_VERSIONS_TABLE_NAME
-    load_data_for_table(schema_name, table, stat_table, 'updated')
+    load_data_for_table(schema_name, table, stat_table, 'update_ts')
