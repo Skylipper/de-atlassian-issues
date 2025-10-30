@@ -22,7 +22,7 @@ def load_issues_func():
     catchup=False,
     tags=['load', 'project', 'stg','atlassian'],
 )
-def load_issues_from_atlassian_to_stg():
+def load_stg_raw_data():
     load_task = PythonOperator(
         task_id='loads_issues',
         python_callable=load_issues_func

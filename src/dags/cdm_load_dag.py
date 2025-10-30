@@ -13,7 +13,7 @@ log = logging.getLogger("cdm_load_dag")
     schedule_interval=None,
     start_date=pendulum.datetime(2022, 5, 5, tz="UTC"),
     catchup=False,
-    tags=['project', 'init', 'sql', 'atlassian'],
+    tags=['project', 'load', 'cdm', 'atlassian'],
     template_searchpath=[f'{var.AIRFLOW_DAGS_DIR}/src/sql/'],
     is_paused_upon_creation=True
 )
