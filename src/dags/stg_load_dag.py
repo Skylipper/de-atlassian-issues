@@ -24,7 +24,7 @@ def load_stg_raw_data():
     load_issues_task = PythonOperator(
         task_id='loads_issues',
         python_callable=load_issues,
-        log=log
+        op_kwargs={'log': log }
     )
     load_lts_versions_task = PythonOperator(
         task_id='load_stg_lts_versions',
