@@ -33,8 +33,12 @@ def load_ods_tables():
         task_id='load_issues',
         python_callable=otl.load_issues
     )
+    load_lts_versions_task = PythonOperator(
+        task_id='load_lts_versions',
+        python_callable=otl.load_lts_versions
+    )
 
-    [load_issue_components_task, load_issue_versions_task, load_issue_fix_versions_task] >> load_issues_task
+    [load_issue_components_task, load_issue_versions_task, load_issue_fix_versions_task,load_lts_versions_task] >> load_issues_task
 
 
 dag = load_ods_tables()
