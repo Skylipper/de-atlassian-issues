@@ -9,21 +9,19 @@ WITH last_updated as (SELECT COALESCE(
 
    , affect_versions as (SELECT DISTINCT version_id
                                        , project_id
-                                       , version_name
-                                       , lmv.major_version_template IS NOT NULL is_lts
+                                       , iv.version_name
+                                       , lv.version_name IS NOT NULL is_lts
                          FROM ods.issue_version_values iv
-                                  LEFT JOIN lts_major_versions lmv
-                                            ON iv.version_name ilike lmv.major_version_template || '%'
+                                  LEFT JOIN ods.lts_versions lv ON iv.version_name = lv.version_name
                          WHERE iv.update_ts >= (SELECT last_loaded_ts FROM last_updated)
                          ORDER BY version_id)
 
    , fix_versions as (SELECT DISTINCT version_id
                                     , project_id
-                                    , version_name
-                                    , lmv.major_version_template IS NOT NULL is_lts
+                                    , fiv.version_name
+                                    , lv.version_name IS NOT NULL is_lts
                       FROM ods.issue_fix_version_values fiv
-                               LEFT JOIN lts_major_versions lmv
-                                         ON fiv.version_name ilike lmv.major_version_template || '%'
+                               LEFT JOIN ods.lts_versions lv ON fiv.version_name = lv.version_name
                       WHERE fiv.update_ts >= (SELECT last_loaded_ts FROM last_updated)
                       ORDER BY version_id)
    , all_versions as (SELECT version_id, project_id, version_name, is_lts
