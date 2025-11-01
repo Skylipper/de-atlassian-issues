@@ -30,6 +30,20 @@ def get_jql_results(jql_query, start_at):
     headers = get_atl_headers(conn_info)
 
     response = http_requests_util.execute_request("GET", url, headers, payload)
+    total = response['total']
+
+    return total
+
+def get_jql_results_count(jql_query):
+    jql_query_encoded = urllib.parse.quote_plus(jql_query)
+    conn_info = get_atl_connection_info()
+    url = f"{conn_info.host}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&maxResults=0&fields=id"
+
+    payload = {}
+    headers = get_atl_headers(conn_info)
+
+    response = http_requests_util.execute_request("GET", url, headers, payload)
+
 
     return response
 
