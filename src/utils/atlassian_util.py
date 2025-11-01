@@ -30,9 +30,8 @@ def get_jql_results(jql_query, start_at):
     headers = get_atl_headers(conn_info)
 
     response = http_requests_util.execute_request("GET", url, headers, payload)
-    total = response['total']
+    return response
 
-    return total
 
 def get_jql_results_count(jql_query):
     jql_query_encoded = urllib.parse.quote_plus(jql_query)
@@ -43,9 +42,9 @@ def get_jql_results_count(jql_query):
     headers = get_atl_headers(conn_info)
 
     response = http_requests_util.execute_request("GET", url, headers, payload)
+    total = response['total']
 
-
-    return response
+    return total
 
 
 def get_atl_headers(conn_info):
