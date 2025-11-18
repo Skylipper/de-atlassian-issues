@@ -26,7 +26,7 @@ events_partitioned = SparkSubmitOperator(
     task_id='spark',
     dag=dag_spark,
     application=f'{var.AIRFLOW_DAGS_DIR}test_spark.py',
-    conn_id='yarn_spark',
+    conn_id='spark',
     executor_cores=1,
     executor_memory='1g'
 )
