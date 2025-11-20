@@ -1,4 +1,4 @@
-import src.utils.variables as var
+import src.config.variables as var
 from src.utils import dwh_util, atlassian_util
 
 # project in ('JRASERVER','JRACLOUD') AND 'updated' >= '2010-01-01 00:00'

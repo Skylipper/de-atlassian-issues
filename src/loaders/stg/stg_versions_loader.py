@@ -1,6 +1,6 @@
 from datetime import datetime
 
-import src.utils.variables as var
+import src.config.variables as var
 from src.utils import dwh_util
 
 versions_file_path = f'{var.AIRFLOW_DAGS_DIR}/src/raw/{var.VERSIONS_FILE_NAME}'

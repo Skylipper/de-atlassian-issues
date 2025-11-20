@@ -1,7 +1,6 @@
-import os
 from datetime import datetime
 
-import src.utils.variables as var
+import src.config.variables as var
 from airflow import DAG
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 

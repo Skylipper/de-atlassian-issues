@@ -4,7 +4,7 @@ import pendulum
 from airflow.decorators import dag
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 
-import src.utils.variables as var
+import src.config.variables as var
 
 log = logging.getLogger("cdm_load_dag")
 

@@ -3,7 +3,7 @@ import time
 
 import requests
 
-import src.utils.variables as var
+import src.config.variables as var
 
 
 def execute_request(method, url, headers, payload):

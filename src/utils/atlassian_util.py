@@ -3,7 +3,7 @@ import urllib.parse
 from airflow.hooks.base import BaseHook
 
 import src.utils.http_requests_util as http_requests_util
-import src.utils.variables as var
+import src.config.variables as var
 
 LAST_LOADED_TS_KEY = "last_loaded_ts"
 

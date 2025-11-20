@@ -1,4 +1,4 @@
-import src.utils.variables as var
+import src.config.variables as var
 from src.utils import dwh_util
 
 def load_data_for_table(schema, table, stat_table, update_ts_field):

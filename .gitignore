@@ -2,3 +2,5 @@
 /src/py_local/secrets.py
 /src/py_local/check_connections_locally.py
 /src/old/
+/src/config/secrets.py
+/src/jupyter/

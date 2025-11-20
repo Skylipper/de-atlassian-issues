@@ -4,7 +4,7 @@ import logging
 import psycopg2
 from airflow.hooks.base import BaseHook
 
-import src.utils.variables as var
+import src.config.variables as var
 
 log = logging.getLogger(__name__)
 

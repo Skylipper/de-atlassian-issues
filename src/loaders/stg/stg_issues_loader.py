@@ -5,7 +5,7 @@ from airflow.hooks.base import BaseHook
 
 import src.utils.atlassian_util as atl
 import src.utils.dwh_util as dwh_util
-import src.utils.variables as var
+import src.config.variables as var
 
 
 def get_jql_results_batch(date, start_at, log):

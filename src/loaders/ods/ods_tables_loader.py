@@ -1,4 +1,4 @@
-import src.utils.variables as var
+import src.config.variables as var
 from src.utils.loader_util import load_data_for_table
 
 stat_table = var.ODS_WF_TABLE_NAME

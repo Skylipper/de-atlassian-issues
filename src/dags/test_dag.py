@@ -5,11 +5,6 @@ from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
 import src.checks.stg.check_issues_count as stg_check
 
-import src.loaders.ods.ods_tables_loader as otl
-import src.utils.atlassian_util as atl
-import src.utils.variables as var
-from src.loaders.dds.dds_tables_loader import load_d_projects
-
 log = logging.getLogger("load_data_from_atlassian_dag")
 
 
