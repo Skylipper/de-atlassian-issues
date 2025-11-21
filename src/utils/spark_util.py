@@ -1,3 +1,5 @@
+import logging
+
 from pyspark.sql import SparkSession, DataFrame
 
 import src.config.variables as var
@@ -13,7 +15,8 @@ def get_spark():
     return spark
 
 
-def read_dwh_issues_view(spark: SparkSession, last_update_time) -> DataFrame:
+def read_dwh_issues_view(spark: SparkSession, last_update_time, log=logging.getLogger("spark")) -> DataFrame:
+    log.info(f"Reading dwh issues view from {last_update_time}")
     dwh_conn = conn_util.get_dwh_conn_props()
     df = spark.read \
         .format('jdbc') \
@@ -28,7 +31,8 @@ def read_dwh_issues_view(spark: SparkSession, last_update_time) -> DataFrame:
     return df
 
 
-def write_issues_info_to_click(df: DataFrame):
+def write_issues_info_to_click(df: DataFrame, log=logging.getLogger("spark")):
+    log.info(f"Writing dwh issues info to temp table")
     click_conn_props = conn_util.get_click_conn_props()
 
     url = f"""jdbc:clickhouse://{click_conn_props["host"]}:{click_conn_props["port"]}/{click_conn_props["db"]}"""

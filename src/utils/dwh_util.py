@@ -9,7 +9,7 @@ import src.config.variables as var
 log = logging.getLogger(__name__)
 
 
-def get_connection(conn_id, log=logging.getLogger("test")):
+def get_connection(conn_id, log=logging.getLogger("dwh")):
     conn_props = None
     try:
         conn_props = BaseHook.get_connection(conn_id)
