@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession, DataFrame
-import src.utils.connection_util as conn_util
+
 import src.config.variables as var
+import src.utils.connection_util as conn_util
 
 
 def get_spark():
@@ -12,7 +13,7 @@ def get_spark():
     return spark
 
 
-def read_dwh_issues_view(spark: SparkSession) -> DataFrame:
+def read_dwh_issues_view(spark: SparkSession, last_update_time) -> DataFrame:
     dwh_conn = conn_util.get_dwh_conn_props()
     df = spark.read \
         .format('jdbc') \
@@ -21,7 +22,8 @@ def read_dwh_issues_view(spark: SparkSession) -> DataFrame:
         .option('dbtable', f'{var.CDM_SCHEMA_NAME}.{var.CDM_MV_ISSUES_INFO_TABLE_NAME}') \
         .option('user', dwh_conn["user"]) \
         .option('password', dwh_conn["password"]) \
-        .load()
+        .load() \
+        .filter(f'updated >= {last_update_time}')
 
     return df
 
