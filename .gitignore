@@ -5,4 +5,4 @@
 /src/jupyter/
 /test.py
 /src/hints
-/src/config/secrets_local.py
+/src/config/secrets.py
