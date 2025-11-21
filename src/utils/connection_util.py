@@ -19,7 +19,7 @@ def get_click_conn_props():
         conn_props["host"] = airflow_conn_props.host
         conn_props["port"] = airflow_conn_props.port
         conn_props["db"] = airflow_conn_props.schema
-        conn_props["user"] = airflow_conn_props.username
+        conn_props["user"] = airflow_conn_props.login
         conn_props["password"] = airflow_conn_props.password
         conn_props["driver"] = var.CLICK_DRIVER
 
@@ -40,7 +40,7 @@ def get_dwh_conn_props():
         conn_props["host"] = airflow_conn_props.host
         conn_props["port"] = airflow_conn_props.port
         conn_props["db"] = airflow_conn_props.schema
-        conn_props["user"] = airflow_conn_props.username
+        conn_props["user"] = airflow_conn_props.login
         conn_props["password"] = airflow_conn_props.password
         conn_props["driver"] = var.CLICK_DRIVER
 
