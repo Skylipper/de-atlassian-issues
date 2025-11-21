@@ -34,7 +34,5 @@ create table if not exists atlassian.issues_info_temp
     resolved_day    integer,
     etl_time        timestamp
 )
-    engine = Memory
-        ORDER BY issue_id
-        SETTINGS index_granularity = 8192;
+    engine = Memory;
 
