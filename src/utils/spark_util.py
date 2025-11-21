@@ -12,7 +12,7 @@ def get_spark():
     return spark
 
 
-def read_issues_view(spark: SparkSession) -> DataFrame:
+def read_dwh_issues_view(spark: SparkSession) -> DataFrame:
     dwh_conn = conn_util.get_dwh_conn_props()
     df = spark.read \
         .format('jdbc') \
@@ -26,7 +26,7 @@ def read_issues_view(spark: SparkSession) -> DataFrame:
     return df
 
 
-def write_issues_info(df: DataFrame):
+def write_issues_info_to_click(df: DataFrame):
     click_conn_props = conn_util.get_click_conn_props()
 
     url = f"""jdbc:clickhouse://{click_conn_props["host"]}:{click_conn_props["port"]}/{click_conn_props["db"]}"""

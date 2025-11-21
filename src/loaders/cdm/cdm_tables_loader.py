@@ -4,7 +4,7 @@ from src.utils import spark_util
 
 spark = spark_util.get_spark()
 with spark:
-    issues_df = spark_util.read_issues_view(spark)
+    issues_df = spark_util.read_dwh_issues_view(spark)
 
     issues_df = (issues_df
                  .select("issue_id", "issue_key", "project_key", "issuetype_name", "priority_name", "status_name",
@@ -28,4 +28,4 @@ with spark:
     issues_df.printSchema()
     issues_df.show(10, False)
 
-    spark_util.write_issues_info(issues_df)
+    spark_util.write_issues_info_to_click(issues_df)
