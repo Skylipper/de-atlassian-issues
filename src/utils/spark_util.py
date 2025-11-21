@@ -23,7 +23,7 @@ def read_dwh_issues_view(spark: SparkSession, last_update_time) -> DataFrame:
         .option('user', dwh_conn["user"]) \
         .option('password', dwh_conn["password"]) \
         .load() \
-        .filter(f'updated >= {last_update_time}')
+        .filter(f"updated >= '{last_update_time}'")
 
     return df
 
