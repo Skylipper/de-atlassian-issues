@@ -7,7 +7,7 @@ import src.utils.connection_util as conn_util
 
 
 def execute_query(clickhouse_client, query: str, logger=logging.getLogger("clickhouse")):
-    logger.info(f'Executing query: {query}')
+    # logger.info(f'Executing query: {query}')
     clickhouse_client.command(query)
 
 
