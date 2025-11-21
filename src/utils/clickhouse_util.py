@@ -20,7 +20,10 @@ def get_query_string_from_file(file_path):
 
 def execute_query_from_file(clickhouse_client, file_name: str, logger=logging.getLogger("clickhouse")):
     logger.info(f'Executing query: {file_name}')
-    sql_file_path = f'{var.AIRFLOW_DAGS_DIR}/src/sql/{var.CDM_SCHEMA_NAME}/{file_name}.sql'
+    sql_file_path = f'./src/sql/{var.CDM_SCHEMA_NAME}/{file_name}.sql'
+    if var.MODE == "dag":
+        sql_file_path = f"{var.AIRFLOW_DAGS_DIR}/{sql_file_path}"
+
     query = get_query_string_from_file(sql_file_path)
     execute_query(clickhouse_client, query, logger)
 
