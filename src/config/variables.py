@@ -2,10 +2,14 @@ from datetime import datetime, timezone
 
 from airflow.configuration import conf
 
+# Connection variables
+MODE = "local"          # local-dag - для тестирования spark и clickhouse без доступа к переменным airflow. Local - берем из config/secrets
+
 #Airflow variables
 AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
 
 # DWH variables
+DWH_DRIVER = "org.postgresql.Driver"
 DWH_CONNECTION_NAME = "ATLAS_DWH_DB"
 VERSIONS_FILE_NAME = 'versions.txt'
 DDS_SCHEMA_NAME = 'dds'
@@ -52,3 +56,8 @@ JQL_EXPAND = 'changelog'
 ISSUE_DATE_FIELD = 'updated'
 PLAIN_JQL = f"project in ('{SRV_PROJECT_KEY}','{CLOUD_PROJECT_KEY}')"
 ATL_TIME_FORMAT = '%Y-%m-%dT%H:%M:%S.%f%z'
+
+# Clickhouse
+CLICK_DRIVER = "com.clickhouse.jdbc.ClickHouseDriver"
+CLICK_ISSUES_TEMP_TABLE_NAME = "issues_info_temp"
+CLICK_ISSUES_TABLE_NAME = "issues_info"
