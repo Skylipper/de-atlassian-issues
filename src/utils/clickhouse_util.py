@@ -41,8 +41,3 @@ def get_clickhouse_client():
                                                       secure=False)
 
     return clickhouse_client
-
-
-clickhouse_client_obj = get_clickhouse_client()
-
-drop_table(clickhouse_client_obj, )
