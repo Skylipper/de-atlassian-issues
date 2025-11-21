@@ -6,3 +6,4 @@
 /test.py
 /src/hints
 /src/config/secrets.py
+/src/config/secrets_local.py

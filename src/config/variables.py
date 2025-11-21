@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from airflow.configuration import conf
 
 # Connection variables
-MODE = "local"          # local-dag - для тестирования spark и clickhouse без доступа к переменным airflow. Local - берем из config/secrets
+MODE = "local"          # local-dag - для тестирования соединений без доступа к переменным airflow. Local - берем из config/secrets
 
 #Airflow variables
 AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
@@ -58,6 +58,7 @@ PLAIN_JQL = f"project in ('{SRV_PROJECT_KEY}','{CLOUD_PROJECT_KEY}')"
 ATL_TIME_FORMAT = '%Y-%m-%dT%H:%M:%S.%f%z'
 
 # Clickhouse
+CLICK_CONNECTION_NAME = "clickhouse"
 CLICK_DRIVER = "com.clickhouse.jdbc.ClickHouseDriver"
 CLICK_ISSUES_TEMP_TABLE_NAME = "issues_info_temp"
 CLICK_ISSUES_TABLE_NAME = "issues_info"

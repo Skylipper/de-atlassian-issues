@@ -1,6 +1,5 @@
-from airflow.hooks.base import BaseHook
 from pyspark.sql import SparkSession, DataFrame
-
+import src.utils.connection_util as conn_util
 import src.config.variables as var
 
 
@@ -14,51 +13,32 @@ def get_spark():
 
 
 def read_issues_view(spark: SparkSession) -> DataFrame:
+    dwh_conn = conn_util.get_dwh_conn_props()
     df = spark.read \
         .format('jdbc') \
-        .option('url', 'jdbc:postgresql://87.242.100.133:5432/dwh') \
-        .option('driver', 'org.postgresql.Driver') \
-        .option('dbtable', 'cdm.mv_issues_info') \
-        .option('user', 'etl_user') \
-        .option('password', 'etl_user') \
+        .option('url', f'jdbc:postgresql://{dwh_conn["host"]}:{dwh_conn["port"]}/{dwh_conn["db"]}') \
+        .option('driver', dwh_conn["driver"]) \
+        .option('dbtable', f'{var.CDM_SCHEMA_NAME}.{var.CDM_MV_ISSUES_INFO_TABLE_NAME}') \
+        .option('user', dwh_conn["user"]) \
+        .option('password', dwh_conn["password"]) \
         .load()
 
     return df
 
 
 def write_issues_info(df: DataFrame):
-    host = "rc1d-1f3k5g7o5m28ukjo.mdb.yandexcloud.net"
-    port = "8443"
-    db_name = "atlassian"
-    db_table = "cdm.mv_issues_info"
-    user = "admin"
-    password = "3RNUAXLmvrreYFU"
-    driver = "com.clickhouse.jdbc.ClickHouseDriver"
+    click_conn_props = conn_util.get_click_conn_props()
 
-    url = f"jdbc:clickhouse://{host}:{port}/{db_name}"
+    url = f"""jdbc:clickhouse://{click_conn_props["host"]}:{click_conn_props["port"]}/{click_conn_props["db"]}"""
 
     # Write DataFrame to ClickHouse
     df.write \
         .format("jdbc") \
-        .option("driver", driver) \
+        .option("driver", click_conn_props["driver"]) \
         .option("url", url) \
-        .option("user", user) \
+        .option("user", click_conn_props["user"]) \
         .option("ssl", "true") \
-        .option("password", password) \
-        .option("dbtable", db_table) \
+        .option("password", click_conn_props["password"]) \
+        .option("dbtable", var.CLICK_ISSUES_TEMP_TABLE_NAME) \
         .mode("append") \
         .save()
-
-
-def read_issues_view_airflow(spark: SparkSession) -> DataFrame:
-    dwh_conn_props = BaseHook.get_connection(var.DWH_CONNECTION_NAME)
-    df = spark.read \
-        .format('jdbc') \
-        .option('url', f'jdbc:postgresql://{dwh_conn_props.host}:{dwh_conn_props.port}/{dwh_conn_props.schema}') \
-        .option('driver', 'org.postgresql.Driver') \
-        .option('dbtable', f'{var.CDM_SCHEMA_NAME}.{var.CDM_MV_ISSUES_INFO_TABLE_NAME}') \
-        .option('user', dwh_conn_props.login) \
-        .option('password', dwh_conn_props.password) \
-        .load()
-
-    return df
