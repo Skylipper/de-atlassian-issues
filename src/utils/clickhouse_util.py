@@ -1,25 +1,40 @@
+import logging
+
 import clickhouse_connect
 
+import src.utils.connection_util as conn_util
+import src.config.variables as var
 
-def create_table(clickhouse_client, database, table_name, columns:dict, logger):
-    logger.info(f'CREATE TEMPORARY table {database}.{table_name}')
-    clickhouse_client.command(
-        f"""CREATE TABLE IF NOT EXISTS {table_name}  ENGINE = Memory;""")
+
+def execute_query(clickhouse_client, query: str, logger=logging.getLogger("clickhouse")):
+    logger.info(f'Executing query: {query}')
+    clickhouse_client.command(query)
+
+def get_query_string_from_file(file_path):
+    with open(file_path, 'r') as file:
+        query_string = file.read()
+
+    return query_string
+
+def execute_query_from_file(clickhouse_client, file_name: str, logger=logging.getLogger("clickhouse")):
+    logger.info(f'Executing query: {file_name}')
+    sql_file_path = f'{var.AIRFLOW_DAGS_DIR}/src/sql/{var.CDM_SCHEMA_NAME}/{file_name}'
+    query = get_query_string_from_file(sql_file_path)
+    execute_query(clickhouse_client, query, logger)
 
 def get_clickhouse_client():
-    host = "rc1d-1f3k5g7o5m28ukjo.mdb.yandexcloud.net"
-    port = 8443
-    db_name = "atlassian"
-    user = "admin"
-    password = "3RNUAXLmvrreYFU"
+    conn_props = conn_util.get_click_conn_props()
 
-    clickhouse_client = clickhouse_connect.get_client(host=host, port=port, database=db_name,
-                                                      username=user,
-                                                      password=password, secure=False)
+    clickhouse_client = clickhouse_connect.get_client(host=conn_props["host"],
+                                                      port=conn_props["port"],
+                                                      database=conn_props["db"],
+                                                      username=conn_props["user"],
+                                                      password=conn_props["password"],
+                                                      secure=False)
 
     return clickhouse_client
 
-clickhouse_client = get_clickhouse_client()
 
+clickhouse_client_obj = get_clickhouse_client()
 
-create_table(clickhouse_client, database="atlassian", table_name="issues_info", columns={})
+execute_query(clickhouse_client_obj, 'SELECT 1')
