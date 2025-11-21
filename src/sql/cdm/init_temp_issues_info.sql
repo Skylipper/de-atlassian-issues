@@ -1,5 +1,3 @@
-DROP table if exists atlassian.issues_info_temp;
-
 create table if not exists atlassian.issues_info_temp
 (
     issue_id        int,
