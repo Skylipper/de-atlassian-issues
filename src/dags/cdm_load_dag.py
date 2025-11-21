@@ -3,6 +3,8 @@ import logging
 import pendulum
 from airflow.decorators import dag
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+from airflow.operators.python import PythonOperator
+import src.loaders.cdm.cdm_tables_loader as ctl
 
 import src.config.variables as var
 
@@ -10,8 +12,8 @@ log = logging.getLogger("cdm_load_dag")
 
 
 @dag(
-    schedule_interval=None,
-    start_date=pendulum.datetime(2022, 5, 5, tz="UTC"),
+    schedule='45 * * * *',
+    start_date=pendulum.datetime(2025, 11, 20, tz="UTC"),
     catchup=False,
     tags=['project', 'load', 'cdm', 'atlassian'],
     template_searchpath=[f'{var.AIRFLOW_DAGS_DIR}/src/sql/'],
@@ -25,7 +27,12 @@ def cdm_load_dag():
         autocommit=True
     )
 
-    refresh_mv_issues_info
+    load_issues_info = PythonOperator(
+        task_id='load_cdm_issues_info',
+        python_callable=ctl.load_issues_info()
+    )
+
+    refresh_mv_issues_info >> load_issues_info
 
 
 dag = cdm_load_dag()
