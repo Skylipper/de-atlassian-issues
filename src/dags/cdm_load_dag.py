@@ -29,7 +29,7 @@ def cdm_load_dag():
 
     load_issues_info = PythonOperator(
         task_id='load_cdm_issues_info',
-        python_callable=ctl.load_issues_info()
+        python_callable=ctl.load_issues_info
     )
 
     refresh_mv_issues_info >> load_issues_info
