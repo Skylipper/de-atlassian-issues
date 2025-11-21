@@ -42,7 +42,7 @@ def get_dwh_conn_props():
         conn_props["db"] = airflow_conn_props.schema
         conn_props["user"] = airflow_conn_props.login
         conn_props["password"] = airflow_conn_props.password
-        conn_props["driver"] = var.CLICK_DRIVER
+        conn_props["driver"] = var.DWH_DRIVER
 
     return conn_props
 
