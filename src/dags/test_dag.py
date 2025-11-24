@@ -1,15 +1,15 @@
 import logging
 from datetime import datetime
 
-from airflow.decorators import dag, task
+from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
-import src.checks.stg.check_issues_count as stg_check
+import src.checks.jql_checks as stg_check
 
 log = logging.getLogger("load_data_from_atlassian_dag")
 
 
 def load_dds():
-    total = stg_check.get_jql_results_count()
+    total = stg_check.get_today_issue_count()
     print(total)
 
 

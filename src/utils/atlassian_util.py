@@ -1,3 +1,4 @@
+import logging
 import urllib.parse
 
 import src.config.variables as var

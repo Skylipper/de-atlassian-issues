@@ -3,7 +3,10 @@ from datetime import datetime
 
 from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
+from airflow.operators.sql import SQLValueCheckOperator
 
+import src.config.variables as var
+import src.checks.jql_checks as jql_checks
 from src.loaders.stg.stg_issues_loader import load_issues
 from src.loaders.stg.stg_versions_loader import load_lts_versions
 
@@ -18,6 +21,7 @@ log = logging.getLogger("load_issues")
     schedule='10 * * * *',
     is_paused_upon_creation=True,
     catchup=False,
+    template_searchpath=[f'{var.AIRFLOW_DAGS_DIR}/src/sql/'],
     tags=['load', 'project', 'stg', 'atlassian'],
 )
 def load_stg_raw_data():
@@ -32,7 +36,12 @@ def load_stg_raw_data():
         op_kwargs={'log': log}
     )
 
-    load_issues_task >> load_lts_versions_task
+    issue_count_check = SQLValueCheckOperator(task_id="check_issue_count_jql_dql",
+                                              sql="stg/check_updated_count.sql",
+                                              pass_value=jql_checks.get_today_issue_count(),
+                                              tolerance=0.01)
+
+    load_issues_task >> issue_count_check >> load_lts_versions_task
 
 
 dag = load_stg_raw_data()
