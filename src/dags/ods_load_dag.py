@@ -51,7 +51,7 @@ def load_ods_tables():
         python_callable=otl.load_lts_versions
     )
 
-    [load_issue_components_task >> check_issue_comp_count, load_issue_versions_task, load_issue_fix_versions_task,load_lts_versions_task] >> load_issues_task
+    [load_issue_components_task, load_issue_versions_task, load_issue_fix_versions_task,load_lts_versions_task] >> load_issues_task
 
 
 dag = load_ods_tables()
