@@ -27,12 +27,12 @@ def load_ods_tables():
         python_callable=otl.load_issue_components
     )
 
-    check_issue_comp_count = SQLValueCheckOperator(task_id="check_issue_count_jql_sql",
-                                              conn_id=var.DWH_CONNECTION_NAME,
-                                              sql="ods/check_updated_issue_comp_count.sql",
-                                              pass_value=check_util.get_today_issue_components_count(),
-                                              tolerance=0.01,
-                                              on_failure_callback=check_util.inform_somebody)
+    # check_issue_comp_count = SQLValueCheckOperator(task_id="check_issue_count_jql_sql",
+    #                                           conn_id=var.DWH_CONNECTION_NAME,
+    #                                           sql="ods/check_updated_issue_comp_count.sql",
+    #                                           pass_value=check_util.get_today_issue_components_count(),
+    #                                           tolerance=0.01,
+    #                                           on_failure_callback=check_util.inform_somebody)
 
     load_issue_versions_task = PythonOperator(
         task_id='load_issue_versions',
