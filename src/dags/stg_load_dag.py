@@ -15,6 +15,9 @@ log = logging.getLogger("load_issues")
 
 # TODO add issue count check
 
+def inform_somebody(context, logger = logging.getLogger("Load failure")):
+    logger.info(f"Informing {context.get('task_instance').dag_id}")
+
 
 @dag(
     start_date=datetime(2025, 10, 15),
@@ -40,7 +43,8 @@ def load_stg_raw_data():
                                               conn_id=var.DWH_CONNECTION_NAME,
                                               sql="stg/check_updated_count.sql",
                                               pass_value=jql_checks.get_today_issue_count(),
-                                              tolerance=0.01)
+                                              tolerance=0.01,
+                                              on_failure_callback=inform_somebody)
 
     load_issues_task >> issue_count_check >> load_lts_versions_task
 
