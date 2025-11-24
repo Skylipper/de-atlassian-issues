@@ -36,7 +36,8 @@ def load_stg_raw_data():
         op_kwargs={'log': log}
     )
 
-    issue_count_check = SQLValueCheckOperator(task_id="check_issue_count_jql_dql",
+    issue_count_check = SQLValueCheckOperator(task_id="check_issue_count_jql_sql",
+                                              conn_id=var.DWH_CONNECTION_NAME,
                                               sql="stg/check_updated_count.sql",
                                               pass_value=jql_checks.get_today_issue_count(),
                                               tolerance=0.01)
