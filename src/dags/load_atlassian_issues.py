@@ -5,9 +5,11 @@ from airflow.decorators import dag
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python import PythonOperator
 from airflow.operators.sql import SQLValueCheckOperator, SQLCheckOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.utils.task_group import TaskGroup
 
 import src.config.variables as var
+import src.loaders.cdm.cdm_tables_loader as ctl
 import src.loaders.dds.dds_tables_loader as dtl
 import src.loaders.ods.ods_tables_loader as otl
 import src.utils.check_util as check_util
@@ -109,7 +111,7 @@ def load_atlassian_data():
                       ods_load_lts_versions_task] >> ods_load_issues_task >> ods_check_issues_count
 
     with TaskGroup("dds_issues_loader") as dds_issues_loader:
-        dds_begin = DummyOperator(task_id="ods_begin")
+        dds_begin = DummyOperator(task_id="dds_begin")
         load_dds_d_projects = PythonOperator(
             task_id='load_dds_d_projects',
             python_callable=dtl.load_d_projects
@@ -199,7 +201,23 @@ def load_atlassian_data():
                                                     load_dds_f_issue_versions >> check_issue_versions_count,
                                                     load_dds_f_issue_fix_versions >> check_issue_fix_versions_count]
 
-    stg_issues_loader >> ods_issues_loader >> dds_issues_loader
+    with TaskGroup("cdm_issues_loader") as cdm_issues_loader:
+        cdm_begin = DummyOperator(task_id="cdm_begin")
+        refresh_mv_issues_info = SQLExecuteQueryOperator(
+            task_id="refresh_mv_issues_info",
+            conn_id=var.DWH_CONNECTION_NAME,
+            sql=f"REFRESH MATERIALIZED VIEW {var.CDM_SCHEMA_NAME}.{var.CDM_MV_ISSUES_INFO_TABLE_NAME};",
+            autocommit=True
+        )
+
+        load_issues_info = PythonOperator(
+            task_id='load_cdm_issues_info',
+            python_callable=ctl.load_issues_info
+        )
+
+        refresh_mv_issues_info >> load_issues_info
+
+    cdm_begin >> stg_issues_loader >> ods_issues_loader >> dds_issues_loader >> cdm_issues_loader
 
 
 dag = load_atlassian_data()
