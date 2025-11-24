@@ -38,7 +38,14 @@ def init_tables_dag():
     init_stg_load_settings = SQLExecuteQueryOperator(
         task_id="stg_init_load_settings",
         conn_id=var.DWH_CONNECTION_NAME,
-        sql="stg/init_load_settings.sql.sql",
+        sql="stg/init_load_settings.sql",
+        autocommit=True
+    )
+
+    init_table_row_count_view = SQLExecuteQueryOperator(
+        task_id="stg_init_load_settings",
+        conn_id=var.DWH_CONNECTION_NAME,
+        sql="stg/init_table_row_count_view.sql",
         autocommit=True
     )
 
@@ -181,9 +188,10 @@ def init_tables_dag():
         autocommit=True
     )
 
-    [init_stg_issues, init_stg_lts_versions, init_stg_load_settings] >> init_ods_load_settings
-    init_ods_load_settings >> [init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions,
-                               init_ods_lts_versions,init_ods_issues] >> init_dds_load_settings
+    [init_stg_issues, init_stg_lts_versions,
+     init_stg_load_settings] >> init_ods_load_settings >> init_table_row_count_view
+    init_table_row_count_view >> [init_ods_issue_components, init_ods_issue_versions, init_ods_issue_fix_versions,
+                                  init_ods_lts_versions, init_ods_issues] >> init_dds_load_settings
     init_dds_load_settings >> [init_dds_d_projects, init_dds_d_statuses, init_dds_d_resolutions, init_dds_d_issuetypes,
                                init_dds_d_priorities, init_dds_d_users] >> join_task
     join_task >> [init_dds_d_components, init_dds_d_versions] >> init_dds_f_issues

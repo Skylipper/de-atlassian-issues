@@ -13,9 +13,8 @@ def get_dwh_connection(log=logging.getLogger("dwh_util")):
     conn_props = None
     try:
         conn_props = conn_util.get_dwh_conn_props()
-        log.info(f"Connect to DWH database {conn_props}")
     except Exception as e:
-        log.error(f"Could not connect to DWH: {e}")
+        log.error(f"{conn_props} Could not connect to DWH: {e}")
 
     conn = psycopg2.connect(
         f"host='{conn_props["host"]}' port='{conn_props["port"]}' dbname='{conn_props["db"]}' user='{conn_props["user"]}' password='{conn_props["password"]}'")
