@@ -1,15 +1,17 @@
-import src.config.variables as var
-import src.config.secrets as secrets
 from airflow.hooks.base import BaseHook
 
+import src.config.secrets as secrets
+import src.config.variables as var
+
 mode = var.MODE
+
 
 def get_click_conn_props():
     conn_props = {}
     if mode == "local":
         conn_props["host"] = secrets.click_host
         conn_props["port"] = secrets.click_port
-        conn_props["db"] =  secrets.click_db_name
+        conn_props["db"] = secrets.click_db_name
         conn_props["user"] = secrets.click_user
         conn_props["password"] = secrets.click_password
         conn_props["driver"] = var.CLICK_DRIVER
@@ -24,6 +26,7 @@ def get_click_conn_props():
         conn_props["driver"] = var.CLICK_DRIVER
 
     return conn_props
+
 
 def get_dwh_conn_props():
     conn_props = {}
@@ -47,3 +50,17 @@ def get_dwh_conn_props():
     return conn_props
 
 
+def get_atlassian_conn_props():
+    conn_props = {}
+    if mode == "local":
+        conn_props["host"] = secrets.atl_host
+        conn_props["port"] = secrets.atl_port
+        conn_props["password"] = secrets.atl_token
+
+    if mode == "dag":
+        airflow_conn_props = BaseHook.get_connection(var.ATLASSIAN_CONN_NAME)
+        conn_props["host"] = airflow_conn_props.host
+        conn_props["port"] = airflow_conn_props.port
+        conn_props["password"] = airflow_conn_props.password
+
+    return conn_props

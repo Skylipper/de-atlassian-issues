@@ -1,17 +1,10 @@
 import urllib.parse
 
-from airflow.hooks.base import BaseHook
-
-import src.utils.http_requests_util as http_requests_util
 import src.config.variables as var
+import src.utils.connection_util as conn_util
+import src.utils.http_requests_util as http_requests_util
 
 LAST_LOADED_TS_KEY = "last_loaded_ts"
-
-
-def get_atl_connection_info():
-    conn_info = BaseHook.get_connection(var.ATLASSIAN_CONN_NAME)
-
-    return conn_info
 
 
 def get_jql_query(date):
@@ -23,8 +16,8 @@ def get_jql_query(date):
 
 def get_jql_results(jql_query, start_at):
     jql_query_encoded = urllib.parse.quote_plus(jql_query)
-    conn_info = get_atl_connection_info()
-    url = f"{conn_info.host}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&expand={var.JQL_EXPAND}&maxResults={var.JQL_BATCH_SIZE}&startAt={start_at}"
+    conn_info = conn_util.get_atlassian_conn_props()
+    url = f"{conn_info["host"]}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&expand={var.JQL_EXPAND}&maxResults={var.JQL_BATCH_SIZE}&startAt={start_at}"
 
     payload = {}
     headers = get_atl_headers(conn_info)
@@ -35,7 +28,7 @@ def get_jql_results(jql_query, start_at):
 
 def get_jql_results_count(jql_query):
     jql_query_encoded = urllib.parse.quote_plus(jql_query)
-    conn_info = get_atl_connection_info()
+    conn_info = conn_util.get_atlassian_conn_props()
     url = f"{conn_info.host}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&maxResults=0&fields=id"
 
     payload = {}
@@ -50,7 +43,7 @@ def get_jql_results_count(jql_query):
 def get_atl_headers(conn_info):
     headers = {
         'Accept': 'application/json',
-        'Authorization': f'Bearer {conn_info.password}'
+        'Authorization': f'Bearer {conn_info["password"]}'
     }
 
     return headers

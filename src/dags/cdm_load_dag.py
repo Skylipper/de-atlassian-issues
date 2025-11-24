@@ -10,6 +10,7 @@ import src.config.variables as var
 
 log = logging.getLogger("cdm_load_dag")
 
+var.MODE = "dag"
 
 @dag(
     schedule='45 * * * *',

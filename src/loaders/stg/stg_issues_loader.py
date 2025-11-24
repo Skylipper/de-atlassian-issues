@@ -1,11 +1,9 @@
 import json
 from datetime import datetime
 
-from airflow.hooks.base import BaseHook
-
+import src.config.variables as var
 import src.utils.atlassian_util as atl
 import src.utils.dwh_util as dwh_util
-import src.config.variables as var
 
 
 def get_jql_results_batch(date, start_at, log):

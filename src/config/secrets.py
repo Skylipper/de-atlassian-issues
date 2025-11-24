@@ -14,3 +14,8 @@ dwh_db_name = "dwh"
 dwh_user = ""
 dwh_password = ""
 
+# Atlassian connection
+atl_host = "https://jira.atlassian.com"
+atl_port = 443
+atl_token = ""
+

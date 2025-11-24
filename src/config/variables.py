@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from airflow.configuration import conf
 
 # Connection variables
-MODE = "dag"          # local-dag - для тестирования соединений без доступа к переменным airflow. Local - берем из config/secrets
+MODE = "local"          # local-dag - для тестирования соединений без доступа к переменным airflow. Local - берем из config/secrets
 
 #Airflow variables
 AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
