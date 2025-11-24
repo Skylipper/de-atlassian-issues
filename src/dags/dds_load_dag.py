@@ -17,6 +17,7 @@ log = logging.getLogger("load_objects")
     start_date=datetime(2025, 10, 22),
     schedule='40 * * * *',
     is_paused_upon_creation=True,
+    template_searchpath=[f'{var.AIRFLOW_DAGS_DIR}/src/sql/'],
     catchup=False,
     tags=['load', 'project', 'dds', 'atlassian'],
 )
@@ -97,9 +98,9 @@ def load_dds_tables():
     )
 
     check_issue_fix_versions_count = SQLCheckOperator(task_id="check_issue_fix_versions_count",
-                                                  conn_id=var.DWH_CONNECTION_NAME,
-                                                  sql="dds/check_issue_fix_ver_count.sql",
-                                                  on_failure_callback=check_util.inform_somebody)
+                                                      conn_id=var.DWH_CONNECTION_NAME,
+                                                      sql="dds/check_issue_fix_ver_count.sql",
+                                                      on_failure_callback=check_util.inform_somebody)
 
     join_task1 = EmptyOperator(task_id='join_point')
 
