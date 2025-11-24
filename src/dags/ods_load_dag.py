@@ -30,7 +30,7 @@ def load_ods_tables():
                                                    conn_id=var.DWH_CONNECTION_NAME,
                                                    sql="ods/check_updated_issue_comp_count.sql",
                                                    pass_value=check_util.get_today_issue_components_count(),
-                                                   tolerance=0.1,
+                                                   tolerance=0.01,
                                                    on_failure_callback=check_util.inform_somebody)
 
     load_issue_versions_task = PythonOperator(
@@ -42,7 +42,7 @@ def load_ods_tables():
                                                       conn_id=var.DWH_CONNECTION_NAME,
                                                       sql="ods/check_updated_issue_version_count.sql",
                                                       pass_value=check_util.get_today_issue_version_count(),
-                                                      tolerance=0.1,
+                                                      tolerance=0.01,
                                                       on_failure_callback=check_util.inform_somebody)
 
     load_issue_fix_versions_task = PythonOperator(
@@ -54,7 +54,7 @@ def load_ods_tables():
                                                       conn_id=var.DWH_CONNECTION_NAME,
                                                       sql="ods/check_updated_issue_fix_ver_count.sql",
                                                       pass_value=check_util.get_today_issue_fix_ver_count(),
-                                                      tolerance=0.1,
+                                                      tolerance=0.01,
                                                       on_failure_callback=check_util.inform_somebody)
 
     load_issues_task = PythonOperator(
