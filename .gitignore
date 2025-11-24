@@ -7,3 +7,4 @@
 /src/hints
 /src/config/secrets.py
 /src/config/secrets_local.py
+/src/dags_test/
