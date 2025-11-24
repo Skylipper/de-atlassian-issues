@@ -3,7 +3,7 @@ from datetime import datetime
 
 from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
-from airflow.operators.sql import SQLValueCheckOperator
+from airflow.operators.sql import SQLValueCheckOperator, SQLCheckOperator
 
 import src.config.variables as var
 import src.loaders.ods.ods_tables_loader as otl
@@ -61,13 +61,17 @@ def load_ods_tables():
         task_id='load_issues',
         python_callable=otl.load_issues
     )
+    check_issues_count = SQLCheckOperator(task_id="check_issues_count",
+                                          sql="check_issues_count.sql",
+                                          on_failure_callback=check_util.inform_somebody)
+
     load_lts_versions_task = PythonOperator(
         task_id='load_lts_versions',
         python_callable=otl.load_lts_versions
     )
 
     [load_issue_components_task >> check_issue_comp_count, load_issue_versions_task >> check_issue_version_count,
-     load_issue_fix_versions_task >> check_issue_fix_ver_count, load_lts_versions_task] >> load_issues_task
+     load_issue_fix_versions_task >> check_issue_fix_ver_count, load_lts_versions_task] >> load_issues_task >> check_issues_count
 
 
 dag = load_ods_tables()
