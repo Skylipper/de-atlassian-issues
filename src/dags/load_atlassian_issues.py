@@ -11,7 +11,6 @@ import src.config.variables as var
 import src.loaders.dds.dds_tables_loader as dtl
 import src.loaders.ods.ods_tables_loader as otl
 import src.utils.check_util as check_util
-from src.loaders.dds import dds_tables_loader
 from src.loaders.stg.stg_issues_loader import load_issues
 from src.loaders.stg.stg_versions_loader import load_lts_versions
 
@@ -200,7 +199,7 @@ def load_atlassian_data():
                                                     load_dds_f_issue_versions >> check_issue_versions_count,
                                                     load_dds_f_issue_fix_versions >> check_issue_fix_versions_count]
 
-    stg_issues_loader >> ods_issues_loader >> dds_tables_loader
+    stg_issues_loader >> ods_issues_loader >> dds_issues_loader
 
 
 dag = load_atlassian_data()
