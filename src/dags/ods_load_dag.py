@@ -62,6 +62,7 @@ def load_ods_tables():
         python_callable=otl.load_issues
     )
     check_issues_count = SQLCheckOperator(task_id="check_issues_count",
+                                          conn_id=var.DWH_CONNECTION_NAME,
                                           sql="ods/check_issues_count.sql",
                                           on_failure_callback=check_util.inform_somebody)
 
