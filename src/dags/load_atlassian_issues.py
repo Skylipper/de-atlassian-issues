@@ -215,9 +215,9 @@ def load_atlassian_data():
             python_callable=ctl.load_issues_info
         )
 
-        refresh_mv_issues_info >> load_issues_info
+        cdm_begin >> refresh_mv_issues_info >> load_issues_info
 
-    cdm_begin >> stg_issues_loader >> ods_issues_loader >> dds_issues_loader >> cdm_issues_loader
+    stg_issues_loader >> ods_issues_loader >> dds_issues_loader >> cdm_issues_loader
 
 
 dag = load_atlassian_data()
