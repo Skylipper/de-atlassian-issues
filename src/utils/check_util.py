@@ -1,7 +1,8 @@
 import logging
 
 import src.config.variables as var
-from src.utils import atlassian_util
+from src.utils import atlassian_util, clickhouse_util
+
 
 def get_today_issue_version_count(logger = logging.getLogger("JQL check")):
     # Получаем количество обновленных запросов с fix_version с начала дня из JQL
@@ -32,6 +33,15 @@ def get_today_issue_count(logger = logging.getLogger("JQL check")):
     jql_query = f"""({var.PLAIN_JQL}) AND 'updated' >= startOfDay()"""
     count = atlassian_util.get_jql_results_count(jql_query)
     logger.info(f"Check query: {jql_query}. JQL results: {count}")
+
+    return count
+
+def get_cdm_issue_count(logger = logging.getLogger("CDM check")):
+    # Получаем количество обновленных запросов с начала дня из CDM
+    client = clickhouse_util.get_clickhouse_client()
+
+    result = client.query("SELECT COUNT(*) issue_count FROM atlassian.issues_info WHERE updated >= curdate();")
+    count = int(result.result_set[0][0])
 
     return count
 

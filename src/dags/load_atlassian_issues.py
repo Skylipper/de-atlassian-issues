@@ -215,7 +215,14 @@ def load_atlassian_data():
             python_callable=ctl.load_issues_info
         )
 
-        cdm_begin >> refresh_mv_issues_info >> load_issues_info
+        cdm_issue_count_check = SQLValueCheckOperator(task_id="check_cdm_issue_count_jql_sql",
+                                                      conn_id=var.DWH_CONNECTION_NAME,
+                                                      sql="cdm/check_updated_count.sql",
+                                                      pass_value=check_util.get_cdm_issue_count(),
+                                                      tolerance=0.01,
+                                                      on_failure_callback=check_util.inform_somebody)
+
+        cdm_begin >> refresh_mv_issues_info >> load_issues_info >> cdm_issue_count_check
 
     stg_issues_loader >> ods_issues_loader >> dds_issues_loader >> cdm_issues_loader
 
