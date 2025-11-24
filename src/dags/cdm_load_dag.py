@@ -2,15 +2,14 @@ import logging
 
 import pendulum
 from airflow.decorators import dag
-from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.operators.python import PythonOperator
-import src.loaders.cdm.cdm_tables_loader as ctl
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 
 import src.config.variables as var
+import src.loaders.cdm.cdm_tables_loader as ctl
 
 log = logging.getLogger("cdm_load_dag")
 
-var.MODE = "dag"
 
 @dag(
     schedule='45 * * * *',
