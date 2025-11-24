@@ -89,7 +89,7 @@ def load_dds_tables():
 
     check_issue_versions_count = SQLCheckOperator(task_id="check_issue_versions_count",
                                                   conn_id=var.DWH_CONNECTION_NAME,
-                                                  sql="dds/check_issue_versions_count.sql",
+                                                  sql="dds/check_issue_version_count.sql",
                                                   on_failure_callback=check_util.inform_somebody)
 
     load_dds_f_issue_fix_versions = PythonOperator(
@@ -109,7 +109,7 @@ def load_dds_tables():
     join_task1 >> [load_dds_d_components, load_dds_d_versions] >> load_dds_f_issues
     load_dds_f_issues >> check_issues_count >> [load_dds_f_issue_components >> check_issue_comps_count,
                                                 load_dds_f_issue_versions >> check_issue_versions_count,
-                                                load_dds_f_issue_fix_versions]
+                                                load_dds_f_issue_fix_versions >> check_issue_fix_versions_count]
 
 
 dag = load_dds_tables()
