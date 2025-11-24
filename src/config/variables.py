@@ -3,9 +3,9 @@ from datetime import datetime, timezone
 from airflow.configuration import conf
 
 # Connection variables
-MODE = "dag"          # local-dag - для тестирования соединений без доступа к переменным airflow. Local - берем из config/secrets
+MODE = "local"  # local-dag - для тестирования соединений без доступа к переменным airflow. Local - берем из config/secrets
 
-#Airflow variables
+# Airflow variables
 AIRFLOW_DAGS_DIR = conf.get("core", "dags_folder")
 
 # DWH variables
@@ -49,7 +49,7 @@ API_FIELDS_PATH = "rest/api/2/field"
 API_FIELD_OPTIONS_PATH = "rest/api/2/field"
 CLOUD_PROJECT_KEY = "JRACLOUD"
 SRV_PROJECT_KEY = "JRASERVER"
-START_DATE = datetime(2010, 1, 1,0,0,0,0,tzinfo=timezone.utc)
+START_DATE = datetime(2010, 1, 1, 0, 0, 0, 0, tzinfo=timezone.utc)
 JQL_RESULTS_RUN_LIMIT = 5000
 JQL_BATCH_SIZE = 50
 JQL_EXPAND = 'changelog'
