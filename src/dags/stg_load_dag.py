@@ -6,17 +6,11 @@ from airflow.operators.python import PythonOperator
 from airflow.operators.sql import SQLValueCheckOperator
 
 import src.config.variables as var
-import src.checks.jql_checks as jql_checks
+import src.utils.check_util as check_util
 from src.loaders.stg.stg_issues_loader import load_issues
 from src.loaders.stg.stg_versions_loader import load_lts_versions
 
 log = logging.getLogger("load_issues")
-
-
-# TODO add issue count check
-
-def inform_somebody(context, logger = logging.getLogger("Load failure")):
-    logger.info(f"Informing {context.get('task_instance').dag_id}")
 
 
 @dag(
@@ -39,12 +33,13 @@ def load_stg_raw_data():
         op_kwargs={'log': log}
     )
 
+    # Проверим, что количество обновленных запросов с начала дня одинаково в JQL и в БД
     issue_count_check = SQLValueCheckOperator(task_id="check_issue_count_jql_sql",
                                               conn_id=var.DWH_CONNECTION_NAME,
                                               sql="stg/check_updated_count.sql",
-                                              pass_value=jql_checks.get_today_issue_count(),
+                                              pass_value=check_util.get_today_issue_count(),
                                               tolerance=0.01,
-                                              on_failure_callback=inform_somebody)
+                                              on_failure_callback=check_util.inform_somebody)
 
     load_issues_task >> issue_count_check >> load_lts_versions_task
 

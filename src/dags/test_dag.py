@@ -3,7 +3,7 @@ from datetime import datetime
 
 from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
-import src.checks.jql_checks as stg_check
+import src.utils.check_util as stg_check
 
 log = logging.getLogger("load_data_from_atlassian_dag")
 
