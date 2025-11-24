@@ -1,16 +1,17 @@
 import logging
 from datetime import datetime
 
-from airflow.decorators import dag, task
+from airflow.decorators import dag
 from airflow.operators.python import PythonOperator
 
+import src.config.variables as var
 from src.loaders.stg.stg_issues_loader import load_issues
 from src.loaders.stg.stg_versions_loader import load_lts_versions
 
 log = logging.getLogger("load_issues")
 
-
 # TODO add issue count check
+var.MODE = "dag"
 
 
 @dag(

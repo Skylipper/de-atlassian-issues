@@ -13,6 +13,7 @@ def get_dwh_connection(log=logging.getLogger("dwh_util")):
     conn_props = None
     try:
         conn_props = conn_util.get_dwh_conn_props()
+        log.info(f"Connect to DWH database {conn_props}")
     except Exception as e:
         log.error(f"Could not connect to DWH: {e}")
 
