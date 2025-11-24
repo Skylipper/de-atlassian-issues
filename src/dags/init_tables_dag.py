@@ -43,7 +43,7 @@ def init_tables_dag():
     )
 
     init_table_row_count_view = SQLExecuteQueryOperator(
-        task_id="stg_init_load_settings",
+        task_id="stg_table_row_count_view",
         conn_id=var.DWH_CONNECTION_NAME,
         sql="stg/init_table_row_count_view.sql",
         autocommit=True
