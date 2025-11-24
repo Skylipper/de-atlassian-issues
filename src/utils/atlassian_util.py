@@ -17,7 +17,7 @@ def get_jql_query(date):
 def get_jql_results(jql_query, start_at):
     jql_query_encoded = urllib.parse.quote_plus(jql_query)
     conn_info = conn_util.get_atlassian_conn_props()
-    url = f"{conn_info["host"]}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&expand={var.JQL_EXPAND}&maxResults={var.JQL_BATCH_SIZE}&startAt={start_at}"
+    url = f"""{conn_info["host"]}/{var.API_SEARCH_METHOD_PATH}?jql={jql_query_encoded}&expand={var.JQL_EXPAND}&maxResults={var.JQL_BATCH_SIZE}&startAt={start_at}"""
 
     payload = {}
     headers = get_atl_headers(conn_info)

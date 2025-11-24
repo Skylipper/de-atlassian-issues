@@ -5,7 +5,6 @@ import src.config.variables as var
 
 mode = var.MODE
 
-
 def get_click_conn_props():
     conn_props = {}
     if mode == "local":

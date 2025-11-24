@@ -1,5 +1,6 @@
 import src.config.variables as var
-from src.utils import dwh_util, atlassian_util
+from src.utils import atlassian_util
+
 
 # Проверим, что количество обновленных запросов с начала дня одинаково в JQL и в БД
 
@@ -12,3 +13,6 @@ def get_jql_results_count():
     print(type(count))
 
     return count
+
+
+get_jql_results_count()
