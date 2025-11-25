@@ -25,8 +25,7 @@ DataLens - визуализация.
 STG слой расположен в отдельной схеме на БД под управлением PostgreSQL.
 
 Схема слоя:
-
-
+![alt text](https://github.com/Skylipper/de-atlassian-issues/blob/main/docs/images/db_scheme/1_stg.png)
 
 Таблицы не имеют внешних ключей, проверяется уникальность ID. 
 При обновлении объекта данные перезаписываются.
