@@ -7,10 +7,10 @@ WITH last_updated as (SELECT COALESCE(
                                      '2010-01-01'::timestamp) as last_loaded_ts)
 
 DELETE
-FROM dds.f_issue_fix_version_values
+FROM dds.f_issue_component_values
 WHERE issue_id in
       (SELECT issue_id
-       FROM ods.issue_fix_version_values
+       FROM ods.issue_component_values
        WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated));
 
 
