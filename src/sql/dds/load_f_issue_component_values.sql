@@ -23,7 +23,7 @@ WITH last_updated as (SELECT COALESCE(
 INSERT INTO dds.f_issue_component_values (issue_id, component_id, update_ts)
 SELECT DISTINCT issue_id,
                 component_id,
-                now()
+                update_ts
 FROM ods.issue_component_values
 WHERE update_ts >= (SELECT last_loaded_ts FROM last_updated)
 ORDER BY issue_id
