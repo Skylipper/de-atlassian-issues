@@ -71,11 +71,11 @@ CDM слой расположен в отдельной схеме на БД п�
 
 Схема материализованного представления:
 
-![cdm](https://github.com/Skylipper/de-atlassian-issues/blob/main/docs/images/db_scheme/4_1_cdm_mat_view.png)
+<img alt="cdm" src="https://github.com/Skylipper/de-atlassian-issues/blob/main/docs/images/db_scheme/4_1_cdm_mat_view.png" width="200"/>
 
 Схема слоя в ClickHouse:
 
-![cdm](https://github.com/Skylipper/de-atlassian-issues/blob/main/docs/images/db_scheme/4_2_cdm_click_table.png)
+<img alt="cdm" src="https://github.com/Skylipper/de-atlassian-issues/blob/main/docs/images/db_scheme/4_2_cdm_click_table.png" width="200"/>
 
 
 #### Визуализация полученных данных в DataLens
